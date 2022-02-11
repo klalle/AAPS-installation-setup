@@ -41,6 +41,7 @@ AAPS i sig är inte beroende av någon extern databas/tjänst (NS), men eftersom
 Det är väldigt viktigt att den som loopar förstår hur loopen tänker, och att man förstår varför den gör som den gör i olika lägen! Det lär man sig absolut bäst genom att titta på historisk data i t.ex. NS-hemsidans rapport-verktyg där det framkommer väldigt tydligt hur AAPS har jobbat.
 
 ![BYODA-version](./images/NS_exempel.png)
+Obs, jag har modifierat koden lite och bl.a. flyttat upp IOB och COB-graferna och ändrat lite text mm, så din NS-rapport kommer inte se ut precis som bilden ovan! vill du testa det, får du istället forka [min fork av nightscout](https://github.com/klalle/cgm-remote-monitor) i installations-steget
 
 ## Hur installerar man en app som inte kommer från google
 1.  Stäng av "Play protect"
