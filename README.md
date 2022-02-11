@@ -22,7 +22,7 @@ AAPS stödjer [flertalet pumpar](https://androidaps.readthedocs.io/en/latest/Har
 - **Omnipod DASH**
 - Medtronic pump
 
-Observera att AAPS nu stödjer Omnipod DASH som pratar blåtand och inte behöver en Rileylink. Sitter du på Eros, kan jag tipsa om att direkt ansöka om att få byta till DASH! Vi fick byta på en vecka trots att receptet hade långt kvar på Eros! Mycket bättre kontakt, en färre pryl att ha koll på/ladda och den återansluter jättebra vid tappad kontakt! Notera dock att [inte alla Android-telefoners](https://docs.google.com/spreadsheets/d/1zO-Vf3wv0jji5Gflk6pe48oi348ApF5RvMcI6NG5TnY) blåtand är så bra med DASH!
+Observera att AAPS nu stödjer Omnipod DASH som pratar blåtand och inte behöver en Rileylink. Sitter du på Eros, kan jag tipsa om att direkt ansöka om att få byta till DASH! Vi fick byta på en vecka trots att receptet hade långt kvar på Eros! Mycket bättre kontakt, en färre pryl att ha koll på/ladda och den återansluter jättebra vid tappad kontakt! Notera dock att [inte alla Android-telefoners](https://docs.google.com/spreadsheets/d/1zO-Vf3wv0jji5Gflk6pe48oi348ApF5RvMcI6NG5TnY) blåtand fungerar så bra med DASH's då den är väldigt energisnål"!
 
 ## CGM
 Alla loop-system är beroende av en stabil och korrekt CGM (koninuerlig glukos-mätare) som levererar ett BG-värde minst var 5e minut. AAPS rekomenderar i nuläget Dexcom G6, då det är den som har tillräckligt stabil mätning och utjämnande algoritm för att kunna aktivera den mer aggresiva typen av loop (SMB). Det går att loopa med [de andra systemen också](https://androidaps.readthedocs.io/en/latest/Configuration/BG-Source.html), men då kommer AAPS inte tillåta SMB (Super micro bolus), vilket vore synd att vara utan - men funkar helt ok ändå, bara inte lika aggresivt. 
