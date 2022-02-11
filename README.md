@@ -170,7 +170,8 @@ Du kan både se BG/IOB/COB i klockan och lägga till måltider och få bolus fö
 
 <img src="./images/watch2.png" height="400">
 
-Smart-klockor måste numera byggas separat på samma sätt som du bygger AAPS (man väljer bara en annan "Module" i byggsteget). läs [här](https://androidaps.readthedocs.io/en/latest/Hardware/Smartwatch.html) om aaps och smartwatch
+Smart-klockor måste numera byggas separat på samma sätt som du bygger AAPS (man väljer bara en annan "Module" i byggsteget). läs [här](https://androidaps.readthedocs.io/en/latest/Hardware/Smartwatch.html) om aaps och smartwatch.
+Där står bland annat att du måste installera appen med "Wear installer", se [youtube-tutorial](https://www.youtube.com/watch?v=8HsfWPTFGQI). 
 
 <img src="./images/watch.png" height="400">
 
