@@ -26,6 +26,7 @@ Vi har gått över till Omnipod DASH som har fått fullt stöd nu i AAPS 3.0. F�
 
 ## CGM
 Alla loop-system är beroende av en stabil och korrekt CGM (koninuerlig glukos-mätare) som levererar ett BG-värde minst var 5e minut. AAPS rekomenderar i nuläget Dexcom G6, då det är den som har tillräckligt stabil mätning och utjämnande algoritm för att kunna aktivera den mer aggresiva typen av loop (SMB). Det går att loopa med [de andra systemen också](https://androidaps.readthedocs.io/en/latest/Configuration/BG-Source.html), men då kommer AAPS inte tillåta användning av SMB (Super micro bolus) fullt ut, vilket vore tråkigt att vara utan - men funkar helt ok ändå, bara inte lika aggresivt. 
+
 Nu för tiden rekomenderar utvecklarna för AAPS att vi använder den så kallade BYODA ("Bygg din egen Dexcom-app"), vissa använder xDrip för att hämta BG-värden från sändaren, men det har krånglat på sistone, och BYODA funkar utmärkt (och kan fortsätta skicka till diasend!) Det rekomenderade är att endast använda xDrip som larm-app då den har mycket fler och bättre larm-funktionalitet och funkar både på loop-telefonen och på följar-telefoner. 
 
 Vill du byta från ios loop till AAPS, så kan du börja med att köra dubbelt ett tag (upp till mål 5!?), då kör du virtuell pump och ställer in `NSClient BG` som din BG-källa, så laddas de i stället ner från NS. 
