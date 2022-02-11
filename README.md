@@ -1,25 +1,41 @@
 # AAPS
 AAPS (AndroidAPS) är byggt med ett stort säkerhetstänk och du kommer (till skillnad från ios-loop) INTE tillåtas att slå på en loop som är helt självgående och pytsar i insulin från början, utan du lotsas genom ett helt gäng "Mål" som du måste ta dig igenom och sakta men säkert öppna upp fler funktioner som tillslut gör loopen mer och mer självgående och kraftfullare. 
-Se till att du läser på  hur appen fungerar så att du kan styra den på ett säkert sätt. [Dokumentationen](https://androidaps.readthedocs.io/en/latest) är på engelska, men lättläst - är det nåt du inte förstår, så ställ en fråga i fb-gruppen [Looped - Sweden](https://www.facebook.com/groups/loopedsweden) eller den internationella [AndroidAPS users](https://www.facebook.com/groups/AndroidAPSUsers). Tips är också att sökfunktionen är bra (dock kan det vara svårt att komma på översättningen från den svenska appen) 
+Se till att du läser på  hur appen fungerar så att du kan styra den på ett säkert sätt. [Dokumentationen](https://androidaps.readthedocs.io/en/latest) är på engelska, men lättläst - är det nåt du inte förstår, så ställ en fråga i fb-gruppen [Looped - Sweden](https://www.facebook.com/groups/loopedsweden) eller den internationella [AndroidAPS users](https://www.facebook.com/groups/AndroidAPSUsers). Tips är också att sökfunktionen är bra (dock kan det vara svårt att komma på översättningen då AAPS-appen är på svenska)
 
 <img src="./images/search.png" height=300>
 
 AAPS och installationsprocess är väldokumenterad, men jag tycker att den saknar en röd tråd för hur allt hänger ihop så jag tänkte förtydliga lite med ett exempel på hur jag har satt upp systemet.
 
 # Förklaring av alla ingående komponenter
+Här nedan ser du hur vi satt upp vårt system. Har inte mer än testkört NSClient-appen, då användaren i vårt fall är självgående, men tog med den som ett exempel.
 ![AAPS_system_overview](./images/AAPS_system_overview.png)
+
+
+## Pumpar
+AAPS stödjer [flertalet pumpar](https://androidaps.readthedocs.io/en/latest/Hardware/pumps.html) och några som har stöd för blåtand så att de kan prata direkt med telefonen som kör AAPS:
+- Dana-R pump
+- Dana-RS pump
+- Accu-Chek Combo pump
+- Accu-Chek Insight pump
+- Diaconn G8 insulin pump
+- Omnipod Eros
+- **Omnipod DASH**
+- Medtronic pump
+
 Observera att AAPS nu stödjer Omnipod DASH som pratar blåtand och inte behöver en Rileylink. Sitter du på Eros, kan jag tipsa om att direkt ansöka om att få byta till DASH! Vi fick byta på en vecka trots att receptet hade långt kvar på Eros! Mycket bättre kontakt, en färre pryl att ha koll på/ladda och den återansluter jättebra vid tappad kontakt! Notera dock att [inte alla Android-telefoners](https://docs.google.com/spreadsheets/d/1zO-Vf3wv0jji5Gflk6pe48oi348ApF5RvMcI6NG5TnY) blåtand är så bra med DASH!
 
 ## CGM
-Alla loop-system är beroende av en stabil och korrekt CGM (koninuerlig glukos-mätare) som levererar ett BG-värde minst var 5e minut. AAPS rekomenderar i nuläget Dexcom G6, då det är den som har tillräckligt  stabil mätning för att kunna lita på. Det går att loopa med [de andra systemen också](https://androidaps.readthedocs.io/en/latest/Configuration/BG-Source.html), men då kommer AAPS inte tillåta SMB (Super micro bolus), vilket vore synd att vara utan - men funkar helt ok ändå, bara inte lika aggresivt. 
-Nu för tiden rekomenderar utvecklarna för AAPS att vi använder den så kallade BYODA ("Bygg din egen Dexcom-app"), vissa använder dock istället xDrip för att hämta BG-värden från sändaren, men det är nog mest av gammal vana! Det rekomenderade är att endast använda xDrip som larm-app då den har mycket fler och bättre larm-funktionalitet och funkar både på loop-telefonen och på följar-telefoner. 
+Alla loop-system är beroende av en stabil och korrekt CGM (koninuerlig glukos-mätare) som levererar ett BG-värde minst var 5e minut. AAPS rekomenderar i nuläget Dexcom G6, då det är den som har tillräckligt stabil mätning och utjämnande algoritm för att kunna aktivera den mer aggresiva typen av loop (SMB). Det går att loopa med [de andra systemen också](https://androidaps.readthedocs.io/en/latest/Configuration/BG-Source.html), men då kommer AAPS inte tillåta SMB (Super micro bolus), vilket vore synd att vara utan - men funkar helt ok ändå, bara inte lika aggresivt. 
+Nu för tiden rekomenderar utvecklarna för AAPS att vi använder den så kallade BYODA ("Bygg din egen Dexcom-app"), vissa använder xDrip för att hämta BG-värden från sändaren, men det har krånglat på sistone, och BYODA funkar utmärkt (och kan fortsätta skicka till diasend!) Det rekomenderade är att endast använda xDrip som larm-app då den har mycket fler och bättre larm-funktionalitet och funkar både på loop-telefonen och på följar-telefoner. 
+
+Vill du byta från ios loop till AAPS, så kan du börja med att köra dubbelt ett tag (upp till mål 5!?), då kör du virtuell pump och ställer in `NSClient BG` som din BG-källa, så laddas de i stället ner från NS. 
 
 
 
 ## Nightscout
 Nightscout (NS) är en moln-baserad tjänst som sparar och visualiserar/tillhandahåller historisk data från ditt loop-system. AAPS skickar upp sina värden och beräkningar till NS var 5e minut och NS tar emot datan och lagrar den i en databas som du själv har satt upp och har full kontroll över (Mongodb i Atlas).
 
-AAPS i sig är inte beroende av någon extern databas/tjänst (NS), men eftersom de absolut flesta användarna vill kunna titta på historisk data (längre tillbaka än de 48h som AAPS håller) och ha möjlighet för t.ex. föräldrar att följa AAPS på distans, så är det i nuläget tvingande att sätta upp NS (Nightscout) att i de första stegen när man installerar AAPS. Till skillnad från att logga in på Dexcom och titta på dina BG-värden där, kommer du kunna se ALL data i NS så som måltider, bolusar, temporära basaler och profilbyten. 
+AAPS i sig är inte beroende av någon extern databas/tjänst (NS), men eftersom de absolut flesta användarna vill kunna titta på historisk data (längre tillbaka än de 48h som AAPS håller) och ha möjlighet för t.ex. föräldrar att följa AAPS på distans, så är det i nuläget tvingande att ha en NS (Nightscout) i de första målen och när man installerar AAPS. Till skillnad från att logga in på Dexcom och titta på dina BG-värden, kommer du kunna se ALL data i NS så som måltider, bolusar, temporära basaler och profilbyten. 
 
 Det är väldigt viktigt att den som loopar förstår hur loopen tänker, och att man förstår varför den gör som den gör i olika lägen! Det lär man sig absolut bäst genom att titta på historisk data i t.ex. NS-hemsidans rapport-verktyg där det framkommer väldigt tydligt hur AAPS har jobbat.
 
@@ -46,7 +62,7 @@ Det är väldigt viktigt att den som loopar förstår hur loopen tänker, och at
 
 
 ## Dexcom BYODA
-Den oficiella Dexcom-appen är låst till att bara fungera på vissa mobiler och den är också låst till att bara skicka sin data till Dexcom-share. Du behöver en Dexcom-app som förutom att skicka till Dexcom-share och diasend, också delar med sig av BG-värden till AAPS (och xDrip). För detta finns en patchad (hackad) variant som du själv konfigurerar/bygger i ett google-formulär och sedan får en länk att ladda ner appen (apk-filen).
+Den oficiella Dexcom-appen är låst till att bara fungera på vissa mobiler och den är också låst till att bara skicka sin data till Dexcom-share. Du behöver en Dexcom-app som förutom att skicka till Dexcom-share och diasend, också delar med sig av BG-värden till AAPS (och xDrip). För detta finns en patchad (hackad) variant som du själv [konfigurerar/bygger i ett google-formulär](https://docs.google.com/forms/d/e/1FAIpQLScD76G0Y-BlL4tZljaFkjlwuqhT83QlFM5v6ZEfO7gCU98iJQ/viewform?fbzx=2196386787609383750&fbclid=IwAR2aL8Cps1s6W8apUVK-gOqgGpA-McMPJj9Y8emf_P0-_gAsmJs6QwAY-o0) och sedan får en länk att ladda ner appen (apk-filen).
 När du fyller i detta formulär är det viktigt att du väljer rätt på dessa inställningar: 
 
 Tillåt att den installeras på ALLA android-telefoner
@@ -69,7 +85,7 @@ Under tiden så kan du passa på att ladda ner xDrip+ [här](https://xdrip-plus-
 
 ## Installera Nightscout
 
-Installation av NS är väl beskrivet i detalj [här](http://nightscout.github.io/nightscout/new_user/), men det kan kännas lite väl tekniskt, så lättast kanske är att följa en [youtube-tutorial](https://youtu.be/rNIpmIhPCpU) på svenska som Jonas Hummelstrand har lagt upp om hur man sätter upp NS med mongodb på Atlas. OBS! Skippa allt som har med BRIDGE att göra (steg 13 och framåt), du ska INTE sätta upp Dexcom bridge då vi istället ska skicka upp all data direkt från AAPS. 
+Installation av NS är väl beskrivet i detalj [här](http://nightscout.github.io/nightscout/new_user/), vill du i stället ha det berättat för dig, så har Jonas Hummelstrand gjort en [youtube-tutorial](https://youtu.be/rNIpmIhPCpU) på svenska där han går igenom processen steg för steg. OBS! Skippa allt som har med BRIDGE att göra (steg 13 och framåt), du ska INTE sätta upp Dexcom bridge då vi istället ska skicka upp all data direkt från AAPS. 
 
 När du är klar med detta steg så har du fortfarande ingen data att visa, men det ska gå att komma åt NS-hemsidan i en webläsare!
 
@@ -117,6 +133,7 @@ Tror att du automatiskt kommer till "Installationsguiden" (hittas annars i menyn
 - NSClient - tryck på "Aktivera NSClient" och fyll i din NS-adress (inkl `https://`) och verifiera att du får kontakt (Status: `Authenticated (RWT)`)
 - Välj insulintyp (notera här att DIA inte kommer vara det du är van vid!)
 - Välj BG-källa (dexcom) och fyll i att du vill `Ladda upp BG-data till NS`
+    - OBS! vanligt att inte få in BG-värdena i AAPS i detta steg! Då väljer du en annan BG-källa, och sedan direkt tillbaka till dexcom, för att trigga en liten popup som frågar om tillstånd...
 - Profil, AAPS jobbar med profiler man kan byta mellan som håller koll på inställningarna:
     - IC (insulin till kh-kvot, hur många gram kh tar en enhet insulin hand om)
     - ISF (insulinkänslighetsfaktor, hur många mmol/l i BG sjunker du på en enhet insulin)
