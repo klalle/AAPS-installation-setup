@@ -12,7 +12,7 @@ Här nedan ser du hur vi satt upp vårt system. Har inte mer än testkört NSCli
 
 
 ## Pumpar
-AAPS stödjer [flertalet pumpar](https://androidaps.readthedocs.io/en/latest/Hardware/pumps.html) varav några har stöd för blåtand så att de kan prata direkt med telefonen som kör AAPS, andra måste ha en länk mellan telefonen och pumpen (Rileylink, orangelink, emalink - de är samma för ios-loop och AAPS!):
+AAPS stödjer [flertalet pumpar](https://androidaps.readthedocs.io/en/latest/Hardware/pumps.html) varav några har stöd för blåtand så att de kan prata direkt med telefonen som kör AAPS, andra måste ha en länk mellan telefonen och pumpen (Rileylink, orangelink, emalink - de är samma länk-prylar används av ios-loopare!):
 - Dana-R pump
 - Dana-RS pump
 - Accu-Chek Combo pump
