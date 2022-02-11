@@ -149,7 +149,9 @@ Nu är det bara att börja jobba dig igenom Målen ett efter ett (läs snälla p
 
 
 ## Klocka
-Smart-klockor måste numera byggas separat på samma sätt som du bygger AAPS (man väljer bara en annan "Module" i byggsteget).
+Du kan både se BG/IOB/COB i klockan och lägga till måltider och få bolus för dessa. 
+<img src="./images/watch2.png" height="400">
+Smart-klockor måste numera byggas separat på samma sätt som du bygger AAPS (man väljer bara en annan "Module" i byggsteget). läs [här](https://androidaps.readthedocs.io/en/latest/Hardware/Smartwatch.html) om aaps och smartwatch
 <img src="./images/watch.png" height="400">
 
 ## NSClient (för föräldrar/följare)
