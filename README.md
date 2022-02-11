@@ -21,7 +21,7 @@ Nightscout (NS) är en moln-baserad tjänst som sparar och visualiserar/tillhand
 
 AAPS i sig är inte beroende av någon extern databas/tjänst (NS), men eftersom de absolut flesta användarna vill kunna titta på historisk data (längre tillbaka än de 48h som AAPS håller) och ha möjlighet för t.ex. föräldrar att följa AAPS på distans, så är det i nuläget tvingande att sätta upp NS (Nightscout) att i de första stegen när man installerar AAPS. Till skillnad från att logga in på Dexcom och titta på dina BG-värden där, kommer du kunna se ALL data i NS så som måltider, bolusar, temporära basaler och profilbyten. 
 
-Det är väldigt viktigt att den som loopar förstår hur loopen tänker, och att man förstår varför den gör som den gör i olika lägen! Det lär man sig absolut bäst genom att titta på historisk data i t.ex. NS-hemsidans rapport-verktyg där det framkommer väldigt tydligt hur AAPS har jobbat. Här t.ex. ser ISF ut att behöva höjas lite, och kanske även CR (I:C)
+Det är väldigt viktigt att den som loopar förstår hur loopen tänker, och att man förstår varför den gör som den gör i olika lägen! Det lär man sig absolut bäst genom att titta på historisk data i t.ex. NS-hemsidans rapport-verktyg där det framkommer väldigt tydligt hur AAPS har jobbat.
 
 ![BYODA-version](./images/NS_exempel.png)
 
