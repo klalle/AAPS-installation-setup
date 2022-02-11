@@ -8,7 +8,7 @@ AAPS och installationsprocess är väldokumenterad, men jag tycker att den sakna
 
 # Förklaring av alla ingående komponenter
 ![AAPS_system_overview](./images/AAPS_system_overview.png)
-Observera att AAPS nu stödjer Omnipod DASH som pratar blåtand och inte behöver en Rileylink. Sitter du på Eros, ansök direkt om att få byta till DASH! Vi fick byta på en vecka trots att receptet hade långt kvar på Eros! Mycket bättre kontakt och den återansluter jättebra vid tappad kontakt! Notera dock att [inte alla Android-telefoners](https://docs.google.com/spreadsheets/d/1zO-Vf3wv0jji5Gflk6pe48oi348ApF5RvMcI6NG5TnY) blåtand är så bra med DASH!
+Observera att AAPS nu stödjer Omnipod DASH som pratar blåtand och inte behöver en Rileylink. Sitter du på Eros, kan jag tipsa om att direkt ansöka om att få byta till DASH! Vi fick byta på en vecka trots att receptet hade långt kvar på Eros! Mycket bättre kontakt, en färre pryl att ha koll på/ladda och den återansluter jättebra vid tappad kontakt! Notera dock att [inte alla Android-telefoners](https://docs.google.com/spreadsheets/d/1zO-Vf3wv0jji5Gflk6pe48oi348ApF5RvMcI6NG5TnY) blåtand är så bra med DASH!
 
 ## CGM
 Alla loop-system är beroende av en stabil och korrekt CGM (koninuerlig glukos-mätare) som levererar ett BG-värde minst var 5e minut. AAPS rekomenderar i nuläget Dexcom G6, då det är den som har tillräckligt  stabil mätning för att kunna lita på. Det går att loopa med [de andra systemen också](https://androidaps.readthedocs.io/en/latest/Configuration/BG-Source.html), men då kommer AAPS inte tillåta SMB (Super micro bolus), vilket vore synd att vara utan - men funkar helt ok ändå, bara inte lika aggresivt. 
@@ -134,7 +134,8 @@ Tror att du automatiskt kommer till "Installationsguiden" (hittas annars i menyn
 <img src="./images/instal_6_profil.png" height="400"> <img src="./images/instal_6_profil2.png" height="400"> <img src="./images/instal_7_pump.png" height="400"> <img src="./images/instal_8_ama.png" height="400">
 <img src="./images/instal_9_loop.png" height="400"> <img src="./images/instal_10_oref1.png" height="400">
 
-Du hittar alla viktiga saker i de två menyerna i vardera övre hörnen. Jag kan inte gå igenom allt, du måste själv bekanta dig med var du hittar allt! Men här är lite kort info:
+Du hittar alla viktiga saker i de två menyerna i vardera övre hörnen. Jag kan inte gå igenom allt, du måste själv bekanta dig med var du hittar allt! Se [AndroidAPS screens](https://androidaps.readthedocs.io/en/latest/Getting-Started/Screenshots.html) för mer info!
+Men här är lite kort info:
 - "Hamburgermenyn" (de tre strecken uppe i vänstra hörnet) där du (förutom genvägar till vald pump/insu/cgm mm) når:
     - Mål - det här är där du måste klara av målen ([Objectives](https://androidaps.readthedocs.io/en/latest/Usage/Objectives.html) på engelska)
     - Underhåll - här exporterar du dina inställningar (Gör det efter varje klarat mål, och lägg på Drive så att du kan återskapa var du var i målen om mobilen dör!)
@@ -144,8 +145,16 @@ Du hittar alla viktiga saker i de två menyerna i vardera övre hörnen. Jag kan
 
 <img src="./images/overview.png" height="400"> <img src="./images/hamburger.png" height="400"> <img src="./images/konfigverktyg.png" height="400">
 
+Nu är det bara att börja jobba dig igenom Målen ett efter ett (läs snälla på om varje mål! finns länkar vid varje mål i appen och du har ju länken till "[Objectives](https://androidaps.readthedocs.io/en/latest/Usage/Objectives.html)"). När du är klar kommer du ha en vältrimmad loop som du förhoppningsvis vet hur du ska justera när insulinkänsligheten förändras. 
+
+
+## Klocka
+Smart-klockor måste numera byggas separat på samma sätt som du bygger AAPS (man väljer bara en annan "Module" i byggsteget).
+<img src="./images/watch.png" height="400">
 
 ## NSClient (för föräldrar/följare)
+Läs på om [Remote monitoring med AAPS](https://androidaps.readthedocs.io/en/latest/Children/Children.html)
+<img src="./images/remote.png">
 NSClient är en app som (oftast) inte behöver byggas själv, utan släpps med senaste releasen av AAPS och kan laddas ner från [github](https://github.com/nightscout/AndroidAPS/releases/) där du hittar två byggda apk-filer (för att kunna styra 2 barn med olika AAPS). För över med Drive och installera som de övriga apparna. 
 
 <img src="./images/nsclientapk.png">
