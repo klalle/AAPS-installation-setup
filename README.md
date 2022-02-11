@@ -166,7 +166,12 @@ Nu är det bara att börja jobba dig igenom Målen ett efter ett (läs snälla p
 
 
 ## Klocka
-Du kan både se BG/IOB/COB i klockan och lägga till måltider och få bolus för dessa. 
+Klockan kan förutom att visualisera aktuell status på dina värden, också styra AAPS: 
+- TT (temporära target)
+- Bolus-kalkylatorn
+- eCarbs
+- vanliga bolus+carbs
+- profilbyte
 
 <img src="./images/watch2.png" height="400">
 
@@ -176,6 +181,9 @@ Där står bland annat att du måste installera appen med "Wear installer", se [
 <img src="./images/watch.png" height="400">
 
 ## NSClient (för föräldrar/följare)
+NSClient används för att monitorera och styra AAPS från en följartelefon. Det är en strippad version av AAPS, så den ser ut väldigt mycket som AAPS, men saknar funktionalitet. Om man i AAPS godkänner att NSClient får lov att göra ändringar, så kan man från NSClient-appen göra profil-byten och sätta TT (temporära target = målvärden). 
+
+All övrig styrning går att sköta via [sms-komandon](https://androidaps.readthedocs.io/en/latest/Children/SMS-Commands.html?highlight=sms) (telefonnumret måste vara aktiverat i AAPS).
 Läs på om [Remote monitoring med AAPS](https://androidaps.readthedocs.io/en/latest/Children/Children.html)
 
 <img src="./images/remote.png">
