@@ -21,17 +21,25 @@ Det är väldigt viktigt att den som loopar förstår hur loopen tänker, och at
 ![BYODA-version](./images/NS_exempel.png)
 
 ## Hur installerar man en app som inte kommer från google
-Flra av systemen som kommer bygger på att du installerar en app på telefonen som inte finns på google-play. För att kunna göra det måste du gå in på inställningar och berätta för telefonen att t.ex. "Files by Google" (appen du kan visa filsystemet i Android) har rättigheter att installera appar. 
-På min telefon (Google pixel 4a med android 12) hittas denna inställning: 
-1. Inställningar
-2. Appar
-3. Särskild appåtkomst
-4. Installera okända appar
+1.  Stäng av "Play protect"
 
-Lättast är nog om du öppnar inställningar och söker i sökrutan efter "okända" eller "installera" så hittar du nog snabbt till rätt ställe.
-I den listan väljer "Files by Google" (eller din filhanterare) och tillåter att den får installera andra appar.
+    - Play protect ska behållas avslagen då den annars kommer försöka stänga av alla dina AAPS-appar varje natt!
+    - Inställningar/Säkerhet/Appsäkerhet/Kugghjulet uppe till höger
+     - Stäng av både "Sök igenom appar" och "Förbättra appidentifiering"
+2. Tillåt installation från annan källa
+    - Flera av systemen som kommer bygger på att du installerar en app på telefonen som inte finns på google-play. För att kunna göra det måste du gå in på inställningar och berätta för telefonen att förslagsvis "Drive" (google drive). 
+    
+    - På min telefon (Google pixel 4a med android 12) hittas denna inställning: 
+        - Inställningar/Appar/Särskild appåtkomst/Installera okända appar
+        - Lättast är nog om du öppnar inställningar och söker i sökrutan efter "okända" eller "installera" så hittar du nog snabbt till rätt ställe.
+I den listan väljer "Drive" och tillåter att den får installera andra appar.
 
 <img src="./images/AllowInstalation.png" height="400">
+
+
+Dropbox funkar också, men tillåter inte direktinstallation från appen, då måste man först kopiera apk-filen till telefonens internminne (tre punkter/Exportera/Spara till Enhet) och sedan tillåta att t.ex. "Files by google" får installera appar (likt steget för Drive ovan).
+
+
 
 ## Installera CGM
 Den oficiella Dexcom-appen är låst till att bara fungera på vissa mobiler och den är också låst till att bara skicka sin data till Dexcom-share. Det finns en patchad (hackad) variant som du själv konfigurerar/bygger i ett google-formulär och sedan får en länk att ladda ner appen (apk-filen).
@@ -66,12 +74,14 @@ I steget när du har byggt appen i AndroidStudio och öppnar "Event log" så kom
 
 `Generate Signed APK: Errors while building APK. You can find the errors in the 'Messages' view.`
 
-om det bara står:
+Om allt har gått bra så står det bara:
 
 `Generate Signed APK: APK(s) generated successfully for module 'AndroidAPS.app' with 0 build variants:` 
 
-så har du lyckats, och måste själv leta reda på filen som kommer ligga under mappen som du laddade ner all kod till (inte androidStudio, utan AAPS-koden) och däri har det skapats en mapp "app" där du hittar `app/full/app-full-release.apk`. 
+Och nu måste du själv leta reda på apk-filen som kommer ligga under mappen som du laddade ner all kod till (inte androidStudio, utan AAPS-koden) och där i har det skapats en mapp "app" där du hittar:
+`app/full/app-full-release.apk`. 
 
+Ta nu och ladda upp `app-full-release.apk` till t.ex. Gdrive och 
 
 d
 
