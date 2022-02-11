@@ -193,3 +193,16 @@ Läs på om [Remote monitoring med AAPS](https://androidaps.readthedocs.io/en/la
 NSClient är en app som (oftast) inte behöver byggas själv, utan släpps med senaste releasen av AAPS och kan laddas ner från [github](https://github.com/nightscout/AndroidAPS/releases/) där du hittar två byggda apk-filer (för att kunna styra 2 barn med olika AAPS). För över med Drive och installera som de övriga apparna. 
 
 <img src="./images/nsclientapk.png">
+ 
+
+# Gadgets
+## M5Stack Nightscout
+Vi har kört en [M5Stack Nightscout](https://www.facebook.com/groups/606295776549008) som är en lite rolig pryl som visar data från NS och kan larma (som en sängklocka eller på arbetsbordet)
+
+<img src="./images/m5stack.png" height=200>
+<img src="./images/m5stack_2.png" height=200>
+
+## NightStander
+Daniel Mini Johansson i Looped - Sweden har utvecklat [NightStander](https://github.com/MiniJoko/NightStander) - en egen pryl som kan visa NS-data och har lite funktioner som kan prata med åtminstone ios-loop (vet inte hur de lirar med AAPS!?)
+
+<img src="https://github.com/MiniJoko/NightStander/blob/main/resources/img/product.png" height=200>
