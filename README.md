@@ -22,28 +22,27 @@ Det är väldigt viktigt att den som loopar förstår hur loopen tänker, och at
 
 ## Hur installerar man en app som inte kommer från google
 1.  Stäng av "Play protect"
-
     - Play protect ska behållas avslagen då den annars kommer försöka stänga av alla dina AAPS-appar varje natt!
     - Inställningar/Säkerhet/Appsäkerhet/Kugghjulet uppe till höger
-     - Stäng av både "Sök igenom appar" och "Förbättra appidentifiering"
+        - Stäng av både "Sök igenom appar" och "Förbättra appidentifiering"
+    - Använd Inställningarnas sökfönster och sök efter "Appsäkerhet" eller "protect" om du inte hittar inställningen!
 2. Tillåt installation från annan källa
     - Flera av systemen som kommer bygger på att du installerar en app på telefonen som inte finns på google-play. För att kunna göra det måste du gå in på inställningar och berätta för telefonen att förslagsvis "Drive" (google drive). 
     
     - På min telefon (Google pixel 4a med android 12) hittas denna inställning: 
         - Inställningar/Appar/Särskild appåtkomst/Installera okända appar
-        - Lättast är nog om du öppnar inställningar och söker i sökrutan efter "okända" eller "installera" så hittar du nog snabbt till rätt ställe.
-I den listan väljer "Drive" och tillåter att den får installera andra appar.
+        - Använd Inställningarnas sökfönster och sök efter "okända" eller "installera" om du inte hittar inställningen!
+        - I den listan väljer "Drive" och tillåter att den får installera andra appar.
+        - <img src="./images/AllowInstalation.png" height="400">
 
-<img src="./images/AllowInstalation.png" height="400">
 
-
-Dropbox funkar också, men tillåter inte direktinstallation från appen, då måste man först kopiera apk-filen till telefonens internminne (tre punkter/Exportera/Spara till Enhet) och sedan tillåta att t.ex. "Files by google" får installera appar (likt steget för Drive ovan).
+    - Dropbox funkar också, men tillåter inte direktinstallation från appen, då måste man först kopiera apk-filen till telefonens internminne (tre punkter/Exportera/Spara till Enhet) och sedan tillåta att t.ex. "Files by google" får installera appar (likt steget för Drive ovan).
 
 
 
 ## Installera CGM
-Den oficiella Dexcom-appen är låst till att bara fungera på vissa mobiler och den är också låst till att bara skicka sin data till Dexcom-share. Det finns en patchad (hackad) variant som du själv konfigurerar/bygger i ett google-formulär och sedan får en länk att ladda ner appen (apk-filen).
-Så när du fyller i detta formulär är det viktigt att du väljer rätt på dessa inställningar: 
+Den oficiella Dexcom-appen är låst till att bara fungera på vissa mobiler och den är också låst till att bara skicka sin data till Dexcom-share. Du behöver en Dexcom-app som förutom att skicka till Dexcom-share och diasend, också delar med sig av BG-värden till AAPS (och xDrip). För detta finns en patchad (hackad) variant som du själv konfigurerar/bygger i ett google-formulär och sedan får en länk att ladda ner appen (apk-filen).
+När du fyller i detta formulär är det viktigt att du väljer rätt på dessa inställningar: 
 
 Tillåt att den installeras på ALLA android-telefoner
 
@@ -59,7 +58,9 @@ Skippa INTE de 2h warmup utan värden och tillåt att dexcom skikar värden inte
 
 Resten är ganska själv-förklarande tror jag (använd default-värdena på de du är osäker på)
 
-Du får nu ett mejl med en nedladdningslänk inom 5min.
+Du får nu ett mejl med en nedladdningslänk inom 5min som du laddar ner och lägger på Drive. 
+
+Under tiden så kan du passa på att ladda ner xDrip+ [här](https://xdrip-plus-updates.appspot.com/stable/xdrip-plus-latest.apk) som du också lägger på Drive!
 
 ## Installera Nightscout
 
@@ -81,7 +82,9 @@ Om allt har gått bra så står det bara:
 Och nu måste du själv leta reda på apk-filen som kommer ligga under mappen som du laddade ner all kod till (inte androidStudio, utan AAPS-koden) och där i har det skapats en mapp "app" där du hittar:
 `app/full/app-full-release.apk`. 
 
-Ta nu och ladda upp `app-full-release.apk` till t.ex. Gdrive och 
+Ta nu och ladda upp `app-full-release.apk` till Drive och du kan från och med nu fokusera helt på mobiltelefonen.
+
+
 
 d
 
