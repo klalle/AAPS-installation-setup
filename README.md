@@ -79,7 +79,7 @@ Skippa INTE de 2h warmup utan värden och tillåt att dexcom skikar värden inte
 
 Resten är ganska själv-förklarande tror jag (använd default-värdena på de du är osäker på)
 
-Du får nu ett mejl med en nedladdningslänk inom 5min som du laddar ner och lägger på Drive. 
+Du får nu ett mejl med en nedladdningslänk inom 5min som du laddar ner och lägger på Drive. OBS! Kolla skräpposten, där hamnade mitt mejl iaf! 
 
 Under tiden så kan du passa på att ladda ner xDrip+ [här](https://xdrip-plus-updates.appspot.com/stable/xdrip-plus-latest.apk) som du också lägger på Drive (den kommer du vilja ha för larm!).
 
