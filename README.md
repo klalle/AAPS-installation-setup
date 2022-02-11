@@ -199,8 +199,7 @@ NSClient är en app som (oftast) inte behöver byggas själv, utan släpps med s
 ## M5Stack Nightscout
 Vi har kört en [M5Stack Nightscout](https://www.facebook.com/groups/606295776549008) som är en lite rolig pryl som visar data från NS och kan larma (som en sängklocka eller på arbetsbordet)
 
-<img src="./images/m5stack.png" height=200>
-<img src="./images/m5stack_2.png" height=200>
+<img src="./images/m5stack.png" height=200><img src="./images/m5stack_2.png" height=200>
 
 ## NightStander
 Daniel Mini Johansson i Looped - Sweden har utvecklat [NightStander](https://github.com/MiniJoko/NightStander) - en egen pryl som kan visa NS-data och har lite funktioner som kan prata med åtminstone ios-loop (vet inte hur de lirar med AAPS!?)
