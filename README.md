@@ -40,7 +40,7 @@ Det är väldigt viktigt att den som loopar förstår hur loopen tänker, och at
 
 
 
-## Installera CGM
+## Dexcom BYODA
 Den oficiella Dexcom-appen är låst till att bara fungera på vissa mobiler och den är också låst till att bara skicka sin data till Dexcom-share. Du behöver en Dexcom-app som förutom att skicka till Dexcom-share och diasend, också delar med sig av BG-värden till AAPS (och xDrip). För detta finns en patchad (hackad) variant som du själv konfigurerar/bygger i ett google-formulär och sedan får en länk att ladda ner appen (apk-filen).
 När du fyller i detta formulär är det viktigt att du väljer rätt på dessa inställningar: 
 
@@ -60,7 +60,7 @@ Resten är ganska själv-förklarande tror jag (använd default-värdena på de 
 
 Du får nu ett mejl med en nedladdningslänk inom 5min som du laddar ner och lägger på Drive. 
 
-Under tiden så kan du passa på att ladda ner xDrip+ [här](https://xdrip-plus-updates.appspot.com/stable/xdrip-plus-latest.apk) som du också lägger på Drive!
+Under tiden så kan du passa på att ladda ner xDrip+ [här](https://xdrip-plus-updates.appspot.com/stable/xdrip-plus-latest.apk) som du också lägger på Drive (den kommer du vilja ha för larm!).
 
 ## Installera Nightscout
 
@@ -84,15 +84,50 @@ Och nu måste du själv leta reda på apk-filen som kommer ligga under mappen so
 
 Ta nu och ladda upp `app-full-release.apk` till Drive och du kan från och med nu fokusera helt på mobiltelefonen.
 
+## Installationer på telefon
+Nu kommer det roliga.
+Förutsättning är att du har Drive på telefonen så att du ser dina uppladdade appar (.apk-filer)
 
+### Dexcom
+Läs mer [här](https://androidaps.readthedocs.io/en/latest/Hardware/DexcomG6.html#if-using-g6-with-build-your-own-dexcom-app) om du vill se vad dokumentationen säger...
+- Om du har kör original-dexcom-appen och har en aktiv sensor+sändare så kan du byta till BYODA utan att förlora någon av dom!
+    - Gå in i original-Dexcom-appen och skriv noga ner de sensor-koden och sändar-serienummer som du har för de aktiva sensorn och sändaren. 
+    - Avinstallera dexcom-appen
+    - Installera den nya BYODA-dexcom-appen som du lagt på Drive genom att trycka på den.
+    - Logga in som vanligt och aktivera sensor-kod och sändar-serienummer.
+    - Sen står det såhär (kommer inte ihåg om det var nåt jag gjorde) 
+        - In phone settings go to apps > Dexcom G6 > permissions > additional permissions and press ‘Access Dexcom app’.
+    - Efter ett tag så kommer appen hitta sändaren och börja logga värden precis som förut. Enda skillnaden är att den också tillåter AAPS/xdrip att få tillgång till datan. 
 
-d
+### AAPS
+Installera nu AAPS genom att trycka på `app-full-release.apk`-filen i Drive
+Tror att du automatiskt kommer till "Installationsguiden" (hittas annars i menyn 3-punkter övre högra hörnet/installationsguide)
+- Alla inställningar kommer kunna ändras senare, så ingen panik att det måste bli rätt från början!
+- Godkänn allt som AAPS vill ha, behövigheter/platsåtkomst mm
+- Välj ett "Huvudlösenord" som du skriver upp (går att återskapa...)
+- Det ploppar upp notiser om att "ingen profil vald" - det är ok
+- Visningsinställningar har inget med loopen att göra, visar bara grönt område på grafen!
+- NSClient - tryck på "Aktivera NSClient" och fyll i din NS-adress (inkl `https://`) och verifiera att du får kontakt (Status: `Authenticated (RWT)`)
+- Välj insulintyp (notera här att DIA inte kommer vara det du är van vid!)
+- Välj BG-källa (dexcom) och fyll i att du vill `Ladda upp BG-data till NS`
+- Profil (AAPS jobbar med profiler som håller koll på inställningar)
+    - IC (insulin till kh-kvot, hur många gram kh tar en enhet insulin hand om)
+    - ISF (insulinkänslighetsfaktor, hur många mmol/l i BG sjunker du på en enhet insulin)
+    - basal
+    - Mål (BG-målvärde/område)
+
+<img src="./images/instal_1_visning.png" height="400">
+<img src="./images/instal_2_nsclient.png" height="150">
+<img src="./images/instal_2_nsclient_2.png" height="400">
+<img src="./images/instal_3_insu.png" height="400">
+<img src="./images/instal_4_BG.png" height="400">
+<img src="./images/instal_5_dia.png" height="400">
+<img src="./images/instal_5_target.png" height="400">
+<img src="./images/instal_5_CR.png" height="400">
+<img src="./images/instal_5_done.png" height="400">
+<img src="./images/instal_5_dia.png" height="400">
+
 
 - BG-värde
-- basal
-- temporär basal (loopen ändrar din basal kontinuerligt)
-- ISF (insulinkänslighetsfaktor)
-- DIA (duration of insulin active som är )
-- IOB (insulin on bord => hur många enheter mer än basalen har du i kroppen)
-- COB (carbs on bord => hur många gram kolhydrater har du just nu i kroppen, räknas automatiskt ner utifrån hur din BG-kurva förändras)
+
 - Profiler/profilbyten (AAPS jobbar med profiler som kan ha olika basal/ISF/IC) 
