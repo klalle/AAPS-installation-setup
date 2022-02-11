@@ -1,6 +1,8 @@
 # AAPS
 AAPS (AndroidAPS) är byggt med ett stort säkerhetstänk och du kommer (till skillnad från ios-loop) INTE tillåtas att slå på en loop som är helt självgående och pytsar i insulin från början, utan du lotsas genom ett helt gäng "Mål" som du måste ta dig igenom och sakta men säkert öppna upp fler funktioner som tillslut gör loopen mer och mer självgående och kraftfullare. 
-Se till att du läser på  hur appen fungerar så att du kan styra den på ett säkert sätt. [Dokumentationen](https://androidaps.readthedocs.io/en/latest) är på engelska, men lättläst - är det nåt du inte förstår, så ställ en fråga i fb-gruppen [Looped - Sweden](https://www.facebook.com/groups/loopedsweden) eller den internationella [AndroidAPS users](https://www.facebook.com/groups/AndroidAPSUsers)
+Se till att du läser på  hur appen fungerar så att du kan styra den på ett säkert sätt. [Dokumentationen](https://androidaps.readthedocs.io/en/latest) är på engelska, men lättläst - är det nåt du inte förstår, så ställ en fråga i fb-gruppen [Looped - Sweden](https://www.facebook.com/groups/loopedsweden) eller den internationella [AndroidAPS users](https://www.facebook.com/groups/AndroidAPSUsers). Tips är också att sökfunktionen är bra (dock kan det vara svårt att komma på översättningen från den svenska appen) 
+
+<img src="./images/search.png" height=300>
 
 AAPS och installationsprocess är väldokumenterad, men jag tycker att den saknar en röd tråd för hur allt hänger ihop så jag tänkte förtydliga lite med ett exempel på hur jag har satt upp systemet.
 
@@ -105,7 +107,9 @@ Läs mer [här](https://androidaps.readthedocs.io/en/latest/Hardware/DexcomG6.ht
 ### AAPS
 Installera nu AAPS genom att trycka på `app-full-release.apk`-filen i Drive
 Tror att du automatiskt kommer till "Installationsguiden" (hittas annars i menyn 3-punkter övre högra hörnet/installationsguide)
+#### Installationsguide:
 - Alla inställningar kommer kunna ändras senare, så ingen panik att det måste bli rätt från början. Du kommer INTE tillåtas att slå på en loop som är helt självgående och pytsar i insulin från början, utan du lotsas genom ett helt gäng "Mål" som du måste ta dig igenom och sakta men säkert öppna upp fler funktioner som tillslut gör loopen mer och mer självgående och kraftfullare. 
+- Se lite screenshots nedanför denna lista: 
 - Godkänn allt som AAPS vill ha, behövigheter/platsåtkomst mm
 - Välj ett "Huvudlösenord" som du skriver upp (går att återskapa...)
 - Det ploppar upp notiser om att "ingen profil vald" - det är ok
@@ -125,8 +129,23 @@ Tror att du automatiskt kommer till "Installationsguiden" (hittas annars i menyn
 - APS-läge - Börja med öppen loop (du måste manuellt genomföra alla ändringar. Du har ändå ingen rättighet att sätta på closed loop än...)
 - Känslighetsavkänning - sätt oref1. 
 
-<img src="./images/instal_1_visning.png" height="400"><img src="./images/instal_2_nsclient.png" height="150"><img src="./images/instal_2_nsclient_2.png" height="400"><img src="./images/instal_3_insu.png" height="400"><img src="./images/instal_4_BG.png" height="400">
-<img src="./images/instal_5_dia.png" height="400"><img src="./images/instal_5_target.png" height="400"><img src="./images/instal_5_CR.png" height="400"><img src="./images/instal_5_done.png" height="400">
-<img src="./images/instal_6_profil.png" height="400"><img src="./images/instal_6_profil2.png" height="400"><img src="./images/instal_7_pump.png" height="400"><img src="./images/instal_8_ama.png" height="400">
-<img src="./images/instal_9_loop.png" height="400"><img src="./images/instal_10_oref1.png" height="400">
+<img src="./images/instal_1_visning.png" height="400"> <img src="./images/instal_2_nsclient.png" height="150"> <img src="./images/instal_2_nsclient_2.png" height="400"> <img src="./images/instal_3_insu.png" height="400"> <img src="./images/instal_4_BG.png" height="400"> 
+<img src="./images/instal_5_dia.png" height="400"> <img src="./images/instal_5_target.png" height="400"><img src="./images/instal_5_CR.png" height="400"><img src="./images/instal_5_done.png" height="400"> 
+<img src="./images/instal_6_profil.png" height="400"> <img src="./images/instal_6_profil2.png" height="400"> <img src="./images/instal_7_pump.png" height="400"> <img src="./images/instal_8_ama.png" height="400">
+<img src="./images/instal_9_loop.png" height="400"> <img src="./images/instal_10_oref1.png" height="400">
 
+Du hittar alla viktiga saker i de två menyerna i vardera övre hörnen. Jag kan inte gå igenom allt, du måste själv bekanta dig med var du hittar allt! Men här är lite kort info:
+- "Hamburgermenyn" (de tre strecken uppe i vänstra hörnet) där du (förutom genvägar till vald pump/insu/cgm mm) når:
+    - Mål - det här är där du måste klara av målen ([Objectives](https://androidaps.readthedocs.io/en/latest/Usage/Objectives.html) på engelska)
+    - Underhåll - här exporterar du dina inställningar (Gör det efter varje klarat mål, och lägg på Drive så att du kan återskapa var du var i målen om mobilen dör!)
+    - Konfiugreringsverktyget
+     inställningar (kugghjul) och väljer vilka flikar som ska synas (gröna ögat -> tryck i checkboxen så aktiveras en ny flik i huvudfönstret)
+- Högermenyn (tre prickar uppe till höger) här nås massor av inställningar 
+
+<img src="./images/overview.png" height="400"> <img src="./images/hamburger.png" height="400"> <img src="./images/konfigverktyg.png" height="400">
+
+
+## NSClient (för föräldrar/följare)
+NSClient är en app som (oftast) inte behöver byggas själv, utan släpps med senaste releasen av AAPS och kan laddas ner från [github](https://github.com/nightscout/AndroidAPS/releases/) där du hittar två byggda apk-filer (för att kunna styra 2 barn med olika AAPS). För över med Drive och installera som de övriga apparna. 
+
+<img src="./images/nsclientapk.png">
