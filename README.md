@@ -124,6 +124,7 @@ Tror att du automatiskt kommer till "Installationsguiden" (hittas annars i menyn
 - APS - vilken algoritm ska AAPS jobba efter - i senare skede kommer du gå över till SMB, men det får du inte tillgång till förän ett långt senare skede, så börja med AMA som det står där.
 - APS-läge - Börja med öppen loop (du måste manuellt genomföra alla ändringar. Du har ändå ingen rättighet att sätta på closed loop än...)
 - Känslighetsavkänning - sätt oref1. 
+
 <img src="./images/instal_1_visning.png" height="400"><img src="./images/instal_2_nsclient.png" height="150"><img src="./images/instal_2_nsclient_2.png" height="400"><img src="./images/instal_3_insu.png" height="400"><img src="./images/instal_4_BG.png" height="400">
 <img src="./images/instal_5_dia.png" height="400"><img src="./images/instal_5_target.png" height="400"><img src="./images/instal_5_CR.png" height="400"><img src="./images/instal_5_done.png" height="400">
 <img src="./images/instal_6_profil.png" height="400"><img src="./images/instal_6_profil2.png" height="400"><img src="./images/instal_7_pump.png" height="400"><img src="./images/instal_8_ama.png" height="400">
