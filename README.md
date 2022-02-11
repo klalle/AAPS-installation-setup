@@ -1,5 +1,8 @@
-# AAPS-installation-setup
-AAPS och installationsprocessen är [väldokumenterad](https://androidaps.readthedocs.io/en/latest) på engelska, men jag tycker att den saknar en röd tråd för hur allt hänger ihop, så jag tänkte förtydliga lite med ett exempel på hur jag har satt upp systemet.
+# AAPS
+AAPS (AndroidAPS) är byggt med ett stort säkerhetstänk och du kommer (till skillnad från ios-loop) INTE tillåtas att slå på en loop som är helt självgående och pytsar i insulin från början, utan du lotsas genom ett helt gäng "Mål" som du måste ta dig igenom och sakta men säkert öppna upp fler funktioner som tillslut gör loopen mer och mer självgående och kraftfullare. 
+Se till att du läser på  hur appen fungerar så att du kan styra den på ett säkert sätt. [Dokumentationen](https://androidaps.readthedocs.io/en/latest) är på engelska, men lättläst - är det nåt du inte förstår, så ställ en fråga i fb-gruppen [Looped - Sweden](https://www.facebook.com/groups/loopedsweden)
+
+AAPS och installationsprocess är väldokumenterad, men jag tycker att den saknar en röd tråd för hur allt hänger ihop så jag tänkte förtydliga lite med ett exempel på hur jag har satt upp systemet.
 
 # Förklaring av alla ingående komponenter
 ![AAPS_system_overview](./images/AAPS_system_overview.png)
@@ -102,7 +105,7 @@ Läs mer [här](https://androidaps.readthedocs.io/en/latest/Hardware/DexcomG6.ht
 ### AAPS
 Installera nu AAPS genom att trycka på `app-full-release.apk`-filen i Drive
 Tror att du automatiskt kommer till "Installationsguiden" (hittas annars i menyn 3-punkter övre högra hörnet/installationsguide)
-- Alla inställningar kommer kunna ändras senare, så ingen panik att det måste bli rätt från början!
+- Alla inställningar kommer kunna ändras senare, så ingen panik att det måste bli rätt från början. Du kommer INTE tillåtas att slå på en loop som är helt självgående och pytsar i insulin från början, utan du lotsas genom ett helt gäng "Mål" som du måste ta dig igenom och sakta men säkert öppna upp fler funktioner som tillslut gör loopen mer och mer självgående och kraftfullare. 
 - Godkänn allt som AAPS vill ha, behövigheter/platsåtkomst mm
 - Välj ett "Huvudlösenord" som du skriver upp (går att återskapa...)
 - Det ploppar upp notiser om att "ingen profil vald" - det är ok
@@ -110,12 +113,17 @@ Tror att du automatiskt kommer till "Installationsguiden" (hittas annars i menyn
 - NSClient - tryck på "Aktivera NSClient" och fyll i din NS-adress (inkl `https://`) och verifiera att du får kontakt (Status: `Authenticated (RWT)`)
 - Välj insulintyp (notera här att DIA inte kommer vara det du är van vid!)
 - Välj BG-källa (dexcom) och fyll i att du vill `Ladda upp BG-data till NS`
-- Profil (AAPS jobbar med profiler som håller koll på inställningar)
+- Profil, AAPS jobbar med profiler man kan byta mellan som håller koll på inställningarna:
     - IC (insulin till kh-kvot, hur många gram kh tar en enhet insulin hand om)
     - ISF (insulinkänslighetsfaktor, hur många mmol/l i BG sjunker du på en enhet insulin)
     - basal
     - Mål (BG-målvärde/område)
-
+    - OBS! loopen tar för givet att dessa är korrekta och får därför svårt att jobba om du inte testar dessa med jämna mellanrum. Ofta varierar de dessutom över dygnet, så du kan speca olika värden för olika timmar i alla utom Mål-värdet. 
+- Profilbyte (appen vill att du gör ett första profilbyte, så att den väljer din nyskapade profil, ändra inga värden, tryck bara "Genomför profilbyte"/"OK"!)
+- Pump - välj "virtuel" pump först för att ha nåt att jobba med i första målet (du behöver ingen riktig pump förän mål 5, men antar att du vill ansluta den så snart du kan) Du kan också kryssa i att ladda status upp till NS.
+- APS - vilken algoritm ska AAPS jobba efter - i senare skede kommer du gå över till SMB, men det får du inte tillgång till förän ett långt senare skede, så börja med AMA som det står där.
+- APS-läge - Börja med öppen loop (du måste manuellt genomföra alla ändringar. Du har ändå ingen rättighet att sätta på closed loop än...)
+- Känslighetsavkänning - sätt oref1. 
 <img src="./images/instal_1_visning.png" height="400">
 <img src="./images/instal_2_nsclient.png" height="150">
 <img src="./images/instal_2_nsclient_2.png" height="400">
@@ -125,9 +133,10 @@ Tror att du automatiskt kommer till "Installationsguiden" (hittas annars i menyn
 <img src="./images/instal_5_target.png" height="400">
 <img src="./images/instal_5_CR.png" height="400">
 <img src="./images/instal_5_done.png" height="400">
-<img src="./images/instal_5_dia.png" height="400">
+<img src="./images/instal_6_profil.png" height="400">
+<img src="./images/instal_6_profil2.png" height="400">
+<img src="./images/instal_7_pump.png" height="400">
+<img src="./images/instal_8_ama.png" height="400">
+<img src="./images/instal_9_loop.png" height="400">
+<img src="./images/instal_10_oref1.png" height="400">
 
-
-- BG-värde
-
-- Profiler/profilbyten (AAPS jobbar med profiler som kan ha olika basal/ISF/IC) 
