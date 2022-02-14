@@ -1,17 +1,3 @@
-# AAPS
-AAPS (AndroidAPS) är byggt med ett stort säkerhetstänk och du kommer (till skillnad från ios-loop) INTE tillåtas att slå på en loop som är helt självgående och pytsar i insulin från början, utan du lotsas genom ett helt gäng "Mål" som du måste ta dig igenom och sakta men säkert öppna upp fler funktioner som tillslut gör loopen mer och mer självgående och kraftfullare. 
-Se till att du läser på  hur appen fungerar så att du kan styra den på ett säkert sätt. [Dokumentationen](https://androidaps.readthedocs.io/en/latest) är på engelska, men lättläst - är det nåt du inte förstår, så ställ en fråga i fb-gruppen [Looped - Sweden](https://www.facebook.com/groups/loopedsweden) eller den internationella [AndroidAPS users](https://www.facebook.com/groups/AndroidAPSUsers). Tips är också att sökfunktionen är bra (dock kan det vara svårt att komma på översättningen då AAPS-appen är på svenska)
-
-<img src="./images/search.png" height=300>
-
-AAPS och installationsprocess är väldokumenterad, men jag tycker att den saknar en röd tråd för hur allt hänger ihop så jag tänkte förtydliga lite med ett exempel på hur jag har satt upp systemet.
-
-# Förklaring av alla ingående komponenter
-Här nedan ser du hur vi satt upp vårt system. Har inte mer än testkört NSClient-appen, då användaren i vårt fall är självgående, men tog med den som ett exempel.
-
-![AAPS_system_overview](./images/AAPS_system_overview.png)
-
-Innehållsförteckning
 - [AAPS](#aaps)
 - [Förklaring av alla ingående komponenter](#förklaring-av-alla-ingående-komponenter)
   - [Pumpar](#pumpar)
@@ -33,6 +19,18 @@ Innehållsförteckning
   - [M5Stack Nightscout](#m5stack-nightscout)
   - [NightStander](#nightstander)
 
+# AAPS
+AAPS (AndroidAPS) är byggt med ett stort säkerhetstänk och du kommer (till skillnad från ios-loop) INTE tillåtas att slå på en loop som är helt självgående och pytsar i insulin från början, utan du lotsas genom ett helt gäng "Mål" som du måste ta dig igenom och sakta men säkert öppna upp fler funktioner som tillslut gör loopen mer och mer självgående och kraftfullare. 
+Se till att du läser på  hur appen fungerar så att du kan styra den på ett säkert sätt. [Dokumentationen](https://androidaps.readthedocs.io/en/latest) är på engelska, men lättläst - är det nåt du inte förstår, så ställ en fråga i fb-gruppen [Looped - Sweden](https://www.facebook.com/groups/loopedsweden) eller den internationella [AndroidAPS users](https://www.facebook.com/groups/AndroidAPSUsers). Tips är också att sökfunktionen är bra (dock kan det vara svårt att komma på översättningen då AAPS-appen är på svenska)
+
+<img src="./images/search.png" height=300>
+
+AAPS och installationsprocess är väldokumenterad, men jag tycker att den saknar en röd tråd för hur allt hänger ihop så jag tänkte förtydliga lite med ett exempel på hur jag har satt upp systemet.
+
+# Förklaring av alla ingående komponenter
+Här nedan ser du hur vi satt upp vårt system. Har inte mer än testkört NSClient-appen, då användaren i vårt fall är självgående, men tog med den som ett exempel.
+
+![AAPS_system_overview](./images/AAPS_system_overview.png)
 
 ## Pumpar
 AAPS stödjer [flertalet pumpar](https://androidaps.readthedocs.io/en/latest/Hardware/pumps.html) varav några har stöd för blåtand så att de kan prata direkt med telefonen som kör AAPS, andra måste ha en länk mellan telefonen och pumpen (Rileylink, orangelink, emalink - de är samma länk-prylar som används av ios-loopare!):
