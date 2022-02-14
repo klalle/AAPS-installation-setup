@@ -227,7 +227,7 @@ Nu är det bara att börja jobba dig igenom Målen ett efter ett (läs snälla p
 - **Mål 4**
     - Öppen loop
         - Du får förslag av AAPS som du manuellt får godkänna - du måste agera på **minst 20st** för att bli godkänd och hålla på **minst 7 dagar**.
-        - Ställ in ett högre spann som BG-målvärde så slipper du får så många "tips" på temporära basal-ändringar... (när aaps är självgående, mål 7, så ställer man bara in ett mål-värde, inte ett spann, ex: 5,5-5,5)
+        - Ställ in ett högre spann som BG-målvärde så slipper du får så många "tips" på temporära basal-ändringar... 
     - Gå igenom alla inställningar så att det ser bra ut
 - **Mål 5**
     - Förstå din öppna loop (från mål 4)
@@ -245,6 +245,7 @@ Nu är det bara att börja jobba dig igenom Målen ett efter ett (läs snälla p
 - **Mål 7**
     - Hurra nu börjar det roliga med stängd loop!
     - Höj sakta din MaxIOB från 0 som i mål 6, till det du beräknar enl dokumentationen (står under objectives)
+    - Tips är att nu ställa in ett målvärde istället för ett spann. Gör det genoma att speca spannet som ex: 5,5-5,5...
     - När du känner att du fått koll på dina värden och du har testat i **minst 1 dag** - gå vidare
 - **Mål 8**
     - Aktivera Autosens som automatiskt försöker se om din insulinkänslighet ändras över tid och då korrigerar det genom att sätta en %-sats på din basal + ISF 
