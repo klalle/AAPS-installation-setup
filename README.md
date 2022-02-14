@@ -186,20 +186,20 @@ Målen 1-11 tar dig från genom alla steg för som gör att AAPS får mer och me
 - **Mål 3**
     - Bevisa din kunskap - Här är det många som fastnar då vissa frågor är lite konstiga. Jag reder ut de som jag tycker är knasiga:
     - **insulinkänslighetsfaktor (ISF)**
-        - "ISF bör anges i dina AndoidAPS-inställningar"... 
+        - *ISF bör anges i dina AndoidAPS-inställningar*... 
             - hint: profilen räknas inte som AndroidAPS-inställningar
     - **Profilbyte**
-        - "ISF kommer att bli 10% högre"
+        - *ISF kommer att bli 10% högre*
             - Jag hävdar att de har räknat fel här... ISF/0.9 blir inte 10 % högre, men det blir åtminståne inte lägre - så svara med en avrunding så blir det rätt!
     - **Brusiga CGM-värden"**
-        - "Inaktivera closed loop-läge för att undvika över- eller underdosering" 
+        - *Inaktivera closed loop-läge för att undvika över- eller underdosering*
             - Ja, på pappret, men frågan är hur många som gör det... men visst - tänk JÄTTE-brusiga värden som får loopen att gå bananas.
-        - "Kontrollera att din CGM-app ger utjämnande data."
+        - *Kontrollera att din CGM-app ger utjämnande data.*
             - Den här frågan är nog inte utformade för BYODA-användare... om man däremot använder xDrip för att läsa ut BG, så finns valet att använda Dexcoms utjämnande algoritm, och vet man det så blir frågan med logisk
     - **Insticksprogram för känslighet**
-        - Insticksprogram för känslighet ger användaren föreslagna ändringar av basaldoser, KH-kvoter och insulinkänslighetsfaltprer som kan användas för att redigera profilen.
+        - *Insticksprogram för känslighet ger användaren föreslagna ändringar av basaldoser, KH-kvoter och insulinkänslighetsfaltprer som kan användas för att redigera profilen.*
             - läs: ger autosens förslag på nya värden för IC, ISF och basal?
-        - "Vissa av insticksprogrammen har konfigurerbara tidsintervall som kan ställas in av användaren"
+        - *Vissa av insticksprogrammen har konfigurerbara tidsintervall som kan ställas in av användaren*
             - hint: finns det nåt plugin som det går att ange ett tidsintervall på (har inget med autosens att göra)
     - **Aktivt Insulin (IOB)**
         - Hint IOB är allt insulin i kroppen utöver det som är basal!
