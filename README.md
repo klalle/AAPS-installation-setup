@@ -8,19 +8,21 @@ AAPS och installationsprocess är väldokumenterad, men jag tycker att den sakna
 
 # Förklaring av alla ingående komponenter
 Här nedan ser du hur vi satt upp vårt system. Har inte mer än testkört NSClient-appen, då användaren i vårt fall är självgående, men tog med den som ett exempel.
+
 ![AAPS_system_overview](./images/AAPS_system_overview.png)
 
 
 ## Pumpar
 AAPS stödjer [flertalet pumpar](https://androidaps.readthedocs.io/en/latest/Hardware/pumps.html) varav några har stöd för blåtand så att de kan prata direkt med telefonen som kör AAPS, andra måste ha en länk mellan telefonen och pumpen (Rileylink, orangelink, emalink - de är samma länk-prylar som används av ios-loopare!):
-- Dana-R pump
-- Dana-RS pump
-- Accu-Chek Combo pump
-- Accu-Chek Insight pump
-- Diaconn G8 insulin pump
+- Accu-Chek Combo
+- Accu-Chek Insight
+- DanaR
+- DanaRS
+- Dana-i
+- Diaconn G8
 - Omnipod Eros
 - **Omnipod DASH**
-- Medtronic pump
+- Medtronic pumps (old)
 
 Vi har gått över till Omnipod DASH som har fått fullt stöd nu i AAPS 3.0. Fördelen med DASH över EROS är att den kommunicerar över blåtand och då behövs inte en Rileylink. Sitter du på Eros kan jag tipsa om att direkt ansöka om att få byta till DASH! Vi fick byta på en vecka trots att receptet hade långt kvar på Eros! Mycket bättre kontakt, en färre pryl att ha koll på/ladda och den återansluter jättebra vid tappad kontakt! Notera dock att [inte alla Android-telefoners](https://docs.google.com/spreadsheets/d/1zO-Vf3wv0jji5Gflk6pe48oi348ApF5RvMcI6NG5TnY) blåtand fungerar så bra med DASH's då den är väldigt energisnål"!
 
