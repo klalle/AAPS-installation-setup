@@ -25,9 +25,9 @@ Här nedan ser du hur vi satt upp vårt system. Har inte mer än testkört NSCli
     - [AAPS](#aaps-1)
       - [Installationsguide:](#installationsguide)
       - [Målen i AAPS](#målen-i-aaps)
-  - [Klocka](#klocka)
-  - [NSClient (för föräldrar/följare)](#nsclient-för-föräldrarföljare)
-  - [xDrip+](#xdrip)
+- [Klocka](#klocka)
+- [NSClient (för föräldrar/följare)](#nsclient-för-föräldrarföljare)
+- [xDrip+](#xdrip)
 - [Gadgets](#gadgets)
   - [M5Stack Nightscout](#m5stack-nightscout)
   - [NightStander](#nightstander)
@@ -265,7 +265,7 @@ Målen 1-11 tar dig från genom alla steg för som gör att AAPS får mer och me
 
 
 
-## Klocka
+# Klocka
 Klockan kan förutom att visualisera aktuell status på dina värden, också styra AAPS: 
 - TT (temporära target)
 - Bolus-kalkylatorn
@@ -280,7 +280,7 @@ Där står bland annat att du måste installera appen med "Wear installer", se [
 
 <img src="./images/watch.png" height="400">
 
-## NSClient (för föräldrar/följare)
+# NSClient (för föräldrar/följare)
 NSClient används för att monitorera och styra AAPS från en följartelefon. Det är en strippad version av AAPS, så den ser ut väldigt mycket som AAPS, men saknar funktionalitet. Om man i AAPS godkänner att NSClient får lov att göra ändringar, så kan man från NSClient-appen göra profil-byten och sätta TT (temporära target = målvärden). 
 
 All övrig styrning går att sköta via [sms-komandon](https://androidaps.readthedocs.io/en/latest/Children/SMS-Commands.html?highlight=sms) (telefonnumret måste vara aktiverat i AAPS).
@@ -292,7 +292,7 @@ NSClient är en app som (oftast) inte behöver byggas själv, utan släpps med s
 
 <img src="./images/nsclientapk.png">
  
-## xDrip+
+# xDrip+
 Installera xDrip+ från apk-filen du laddat ner i tidigare skede. 
 Gå till inställningar (övre vänstra hörnets tre streck/Inställningar) och börja med att välja "Hårdvarudatakälla" (BG-källa).
 - Telefonen med BYODA och AAPS: välj `640G / EverSense`
