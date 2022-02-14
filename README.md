@@ -61,13 +61,13 @@ Vill du byta från ios loop till AAPS, så kan du börja med att köra dubbelt e
 ## Nightscout
 Nightscout (NS) är en moln-baserad tjänst som sparar och visualiserar/tillhandahåller historisk data från ditt loop-system. AAPS skickar upp sina värden och beräkningar till NS var 5e minut och NS tar emot datan och lagrar den i en databas som du själv har satt upp och har full kontroll över (Mongodb i Atlas).
 
-<img src="./images/NS_exempel_2.png" style="max-height:400px">
+<img src="./images/NS_exempel_2.png" height=400>
 
 AAPS i sig är inte beroende av någon extern databas/tjänst (NS), men eftersom de absolut flesta användarna vill kunna titta på historisk data (längre tillbaka än de 48h som AAPS håller) och ha möjlighet för t.ex. föräldrar att följa AAPS på distans, så är det i nuläget tvingande att ha en NS (Nightscout) i de första målen och när man installerar AAPS. Till skillnad från att logga in på Dexcom och titta på dina BG-värden, kommer du kunna se ALL data i NS så som måltider, bolusar, temporära basaler och profilbyten. 
 
 Det är väldigt viktigt att den som loopar förstår hur loopen tänker, och att man förstår varför den gör som den gör i olika lägen! Det lär man sig absolut bäst genom att titta på historisk data i t.ex. NS-hemsidans rapport-verktyg där det framkommer väldigt tydligt hur AAPS har jobbat.
 
-<img src="./images/NS_rapport_1.png" style="max-height:500px;">
+<img src="./images/NS_rapport_1.png" height=500px;>
 
 Obs, jag har modifierat koden lite och bl.a. flyttat upp IOB och COB-graferna och ändrat lite text mm, så din NS-rapport kommer inte se ut precis som bilden ovan!
 
@@ -78,13 +78,13 @@ Sidan innheåller också lite övrig statistik:
 - etc...
 
 lite exempel på hur det kan se ut: 
-<img src="./images/NS_rapport_2.png" style="max-height:200px">
-<img src="./images/NS_rapport_3.png" style="max-height:300px">
-<img src="./images/NS_rapport_4.png" style="max-height:300px">
+<img src="./images/NS_rapport_2.png" height=200>
+<img src="./images/NS_rapport_3.png" height=300>
+<img src="./images/NS_rapport_4.png" height=300>
 
 Du kan även se historiken på de profiler du har haft vilket kan vara väldigt bra att se hur man har ändrat sina värden... (även här har jag ändrat i koden, så att alla timmar syns och de ändrade värdena färgläggs.)
 
-<img src="./images/NS_rapport_5.png" style="max-height:500px">
+<img src="./images/NS_rapport_5.png" height=500>
 
 Vill du testa min moddade variant av NS, får du läsa i installations-steget hur du gör.
 
@@ -101,7 +101,7 @@ Vill du testa min moddade variant av NS, får du läsa i installations-steget hu
         - Inställningar/Appar/Särskild appåtkomst/Installera okända appar
         - Använd Inställningarnas sökfönster och sök efter "okända" eller "installera" om du inte hittar inställningen!
         - I den listan väljer "Drive" och tillåter att den får installera andra appar.
-        - <img src="./images/AllowInstalation.png" style="max-height:400px">
+        - <img src="./images/AllowInstalation.png" height=400>
 
 
     - Dropbox funkar också, men tillåter inte direktinstallation från appen, då måste man först kopiera apk-filen till telefonens internminne (tre punkter/Exportera/Spara till Enhet) och sedan tillåta att t.ex. "Files by google" får installera appar (likt steget för Drive ovan).
@@ -114,15 +114,15 @@ När du fyller i detta formulär är det viktigt att du väljer rätt på dessa 
 
 Tillåt att den installeras på ALLA android-telefoner
 
-<img src="./images/BYODA_devices.png" style="max-height:100px">
+<img src="./images/BYODA_devices.png" height=100>
 
 Versionen av dexcom som vi har i Europa:
 
-<img src="./images/BYODA_version.png" style="max-height:250px">
+<img src="./images/BYODA_version.png" height=250>
 
 Skippa INTE de 2h warmup utan värden och tillåt att dexcom skikar värden internt inom telefonen till AAPS och eventuellt xDrip (välj detta även om du inte har xDrip till att börja med)
 
-<img src="./images/BYODA_brodcast.png" style="max-height:400px">
+<img src="./images/BYODA_brodcast.png" height=400>
 
 Resten är ganska själv-förklarande tror jag (använd default-värdena på de du är osäker på)
 
@@ -140,13 +140,13 @@ När du är klar med detta steg så har du fortfarande ingen data att visa, men 
 
 Lite tips hur jag använder NS: 
 - Aktivera OpenAPS predictions (de är inte färglagda från början, kommer strax!)
-- <img src="./images/NS_Web_3.png" style="max-width:400px"> <img src="./images/NS_Web_5.png" style="max-width:400px">
+- <img src="./images/NS_Web_3.png" width=400> <img src="./images/NS_Web_5.png" width=400>
   
   - Om du hovrar musen över OpenAPS-rutan (trycker på mobil) så visas massa bra info om varför AAPS har tagit det beslut det har tagit.
   - notera att min "OpenAPS"-ruta visar mer än standard då jag har moddat koden lite... 
 - Öppna menyn (tre streck i högra hörnet)
   - Rapportverktyg är det jag använder absolut mest! (förutom grafen i huvudfönstret)
-- <img src="./images/NS_Web_1.png" style="max-height:700px"> <img src="./images/NS_Web_2.png" style="max-height:700px">
+- <img src="./images/NS_Web_1.png" height=700> <img src="./images/NS_Web_2.png" height=700>
   - "Vård Portal" (särskrivning delux) kommer upp som ett litet kryss bredvid huvudmenyn (där kan man logga saker som faktiskt hamnar i databasen!)
     - Behöver inte användas så mycket då AAPS loggar det mesta själv, men här kan man t.ex. logga profilbyten jag tror att man kan få AAPS att byta till (om man är inloggad med token och har godkänt i AAPS)
   - Här ser du mot slutet också "Färgsätt progrosrader" som gör att du ser skillnad på prognos-graferna (denna finns inte om du inte först aktiverat OpenAPS enl ovan)
@@ -208,10 +208,10 @@ Tror att du automatiskt kommer till "Installationsguiden" (hittas annars i menyn
 - APS-läge - Börja med öppen loop (du måste manuellt genomföra alla ändringar. Du har ändå ingen rättighet att sätta på closed loop än...)
 - Känslighetsavkänning - sätt oref1. 
 
-<img src="./images/instal_1_visning.png" style="max-height:400px"> <img src="./images/instal_2_nsclient.png" style="max-height:150px"> <img src="./images/instal_2_nsclient_2.png" style="max-height:400px"> <img src="./images/instal_3_insu.png" style="max-height:400px"> <img src="./images/instal_4_BG.png" style="max-height:400px"> 
-<img src="./images/instal_5_dia.png" style="max-height:400px"> <img src="./images/instal_5_target.png" style="max-height:400px"><img src="./images/instal_5_CR.png" style="max-height:400px"><img src="./images/instal_5_done.png" style="max-height:400px"> 
-<img src="./images/instal_6_profil.png" style="max-height:400px"> <img src="./images/instal_6_profil2.png" style="max-height:400px"> <img src="./images/instal_7_pump.png" style="max-height:400px"> <img src="./images/instal_8_ama.png" style="max-height:400px">
-<img src="./images/instal_9_loop.png" style="max-height:400px"> <img src="./images/instal_10_oref1.png" style="max-height:400px">
+<img src="./images/instal_1_visning.png" height=400> <img src="./images/instal_2_nsclient.png" height=150> <img src="./images/instal_2_nsclient_2.png" height=400> <img src="./images/instal_3_insu.png" height=400> <img src="./images/instal_4_BG.png" height=400> 
+<img src="./images/instal_5_dia.png" height=400> <img src="./images/instal_5_target.png" height=400><img src="./images/instal_5_CR.png" height=400><img src="./images/instal_5_done.png" height=400> 
+<img src="./images/instal_6_profil.png" height=400> <img src="./images/instal_6_profil2.png" height=400> <img src="./images/instal_7_pump.png" height=400> <img src="./images/instal_8_ama.png" height=400>
+<img src="./images/instal_9_loop.png" height=400> <img src="./images/instal_10_oref1.png" height=400>
 
 Du hittar alla viktiga saker i de två menyerna i vardera övre hörnen. Jag kan inte gå igenom allt, du måste själv bekanta dig med var du hittar allt! Se [AndroidAPS screens](https://androidaps.readthedocs.io/en/latest/Getting-Started/Screenshots.html) för mer info!
 Men här är lite kort info:
@@ -222,7 +222,7 @@ Men här är lite kort info:
      inställningar (kugghjul) och väljer vilka flikar som ska synas (gröna ögat -> tryck i checkboxen så aktiveras en ny flik i huvudfönstret)
 - Högermenyn (tre prickar uppe till höger) här nås massor av inställningar 
 
-<img src="./images/overview.png" style="max-height:400px"> <img src="./images/hamburger.png" style="max-height:400px"> <img src="./images/konfigverktyg.png" style="max-height:400px">
+<img src="./images/overview.png" height=400> <img src="./images/hamburger.png" height=400> <img src="./images/konfigverktyg.png" height=400>
 
 Nu är det bara att börja jobba dig igenom Målen ett efter ett (läs snälla på om varje mål! finns länkar vid varje mål i appen och du har ju länken till "[Objectives](https://androidaps.readthedocs.io/en/latest/Usage/Objectives.html)"). När du är klar kommer du ha en vältrimmad loop som du förhoppningsvis vet hur du ska justera när insulinkänsligheten förändras. 
 
@@ -232,7 +232,7 @@ Nu är det bara att börja jobba dig igenom Målen ett efter ett (läs snälla p
     - Valt din profil
     - Fått BG-data från sensor
     - Har kontakt med NS
-    - <img src="./images/obj_1.png" style="max-height:400px">
+    - <img src="./images/obj_1.png" height=400>
 - **Mål 2**
     - Testa lite funktionalitet genom att:
         - Sätta temporär profil
@@ -310,12 +310,12 @@ Klockan kan förutom att visualisera aktuell status på dina värden, också sty
 - vanliga bolus+carbs
 - profilbyte
 
-<img src="./images/watch2.png" style="max-height:400px">
+<img src="./images/watch2.png" height=400>
 
 Smart-klockor måste numera byggas separat på samma sätt som du bygger AAPS (man väljer bara en annan "Module" i byggsteget). läs [här](https://androidaps.readthedocs.io/en/latest/Hardware/Smartwatch.html) om aaps och smartwatch.
 Där står bland annat att du måste installera appen med "Wear installer", se [youtube-tutorial](https://www.youtube.com/watch?v=8HsfWPTFGQI). 
 
-<img src="./images/watch.png" style="max-height:400px">
+<img src="./images/watch.png" height=400>
 
 ## NSClient (för föräldrar/följare)
 NSClient används för att monitorera och styra AAPS från en följartelefon. Det är en strippad version av AAPS, så den ser ut väldigt mycket som AAPS, men saknar funktionalitet. Om man i AAPS godkänner att NSClient får lov att göra ändringar, så kan man från NSClient-appen göra profil-byten och sätta TT (temporära target = målvärden). 
@@ -323,11 +323,11 @@ NSClient används för att monitorera och styra AAPS från en följartelefon. De
 All övrig styrning går att sköta via [sms-komandon](https://androidaps.readthedocs.io/en/latest/Children/SMS-Commands.html?highlight=sms) (telefonnumret måste vara aktiverat i AAPS).
 Läs på om [Remote monitoring med AAPS](https://androidaps.readthedocs.io/en/latest/Children/Children.html)
 
-<img src="./images/remote.png">
+<img src="./images/remote.png>
 
 NSClient är en app som (oftast) inte behöver byggas själv, utan släpps med senaste releasen av AAPS och kan laddas ner från [github](https://github.com/nightscout/AndroidAPS/releases/) där du hittar två byggda apk-filer (för att kunna styra 2 barn med olika AAPS). För över med Drive och installera som de övriga apparna. 
 
-<img src="./images/nsclientapk.png">
+<img src="./images/nsclientapk.png>
  
 ## xDrip+
 Installera xDrip+ från apk-filen du laddat ner i tidigare skede. 
@@ -336,30 +336,30 @@ Gå till inställningar (övre vänstra hörnets tre streck/Inställningar) och 
 - Alla följartelefoner: Välj `Nightscout Follower` och fyll i adressen till din NS-site (inkl `https://`) under "Nightscout Follow URL" som kommer upp under "Hårdvarukälla" i menyn. 
 - Om du vill kan du aktivera "Download Treatments" för att även se insulin och kh i xDrip, men jag har inte det då jag bara använde xDrip för larm.
 
-<img src="./images/xdrip_BYODA.png" style="max-height:400px"><img src="./images/xdrip_NS.png" style="max-height:400px">
+<img src="./images/xdrip_BYODA.png" height=400><img src="./images/xdrip_NS.png" height=400>
 
 Gå till Inställningar/`Larm och varningar` (näst högst upp) och börja ovanifrån
 
-<img src="./images/xdrip_inst.png" style="max-height:400px"> 
+<img src="./images/xdrip_inst.png" height=400> 
 
 Här är lite tips på bra larm du kan aktivera
 - "Lista över glukosnivåvarningar"
     - Här skapar du larm för låga/höga BG-värden
     - Larmen kan vara olika för olika dagar/tider och du väljer själv melodi osv.
     - OBS! jag hade förut problem med att fylla i ett värde då xdrip inte tillåter mig att skriva "," men vägrar godta "."... skriv då på ett annat ställe i telefonen och kopiera/klistra in värdet (t.ex "3,5") i rutan
-    - <img src="./images/xdrip_BG.png" style="max-height:400px"> <img src="./images/xdrip_BG_low.png" style="max-height:400px">
+    - <img src="./images/xdrip_BG.png" height=400> <img src="./images/xdrip_BG_low.png" height=400>
 - "Glukosvarningsinställningar"
     - "Intelligent snooze" & "Intelliganta larm" - Fantastiskt att slippa få larm om värdena ändå går åt rätt håll!
-    - <img src="./images/xdrip_glukvarninst.png" style="max-height:400px"> 
+    - <img src="./images/xdrip_glukvarninst.png" height=400> 
 - "Varning för missade avläsningar" 
     - Bra att ha för t.ex. följare!
 - "Andra varningar" 
     - "Bg falling fast" 
     - "Bg rising fast"
-    - <img src="./images/xdrip_BG_fallfast.png" style="max-height:400px"> 
+    - <img src="./images/xdrip_BG_fallfast.png" height=400> 
 - "Ytterligare varningar (xDrip+)"
     - "Larm vid beständigt högt" - Använde jag som följare för att slippa få larm bara för att det blev högt ett litet tag
-    - <img src="./images/xdrip_larmBest.png" style="max-height:400px"> 
+    - <img src="./images/xdrip_larmBest.png" height=400> 
 
 Det finns säker fler larm som är praktiska än de jag visat ovan. 
 
