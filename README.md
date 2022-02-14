@@ -365,7 +365,9 @@ Här är lite tips på bra larm du kan aktivera
 Det finns säker fler larm som är praktiska än de jag visat ovan. 
 
 ## OmnipodStash
-Jag har byggt en liten applikation som man kan installera bredvid NS och som håller koll på lagret av poddar/sensorer och insulin man har kvar där hemma. Poddar och sensorer registrerar AAPS vid byten, så de räknas ner automatiskt - insulinflaskor får du registrera manuellt när en tagit slut.
+Jag har byggt en liten applikation som man kan installera bredvid NS och som håller koll på lagret av poddar/sensorer och insulin man har kvar där hemma. När det börjar ta slut så får du ett mejl som påminner om att beställa nya.
+
+ Poddar och sensorer registrerar AAPS till NS vid byten, så de räknas ner automatiskt - insulinflaskor får du registrera manuellt när en tagit slut.
 
 Installationsbeskrivning finns [här](https://github.com/maja-lofgren/omnipod_stash)
 
