@@ -310,12 +310,12 @@ Klockan kan förutom att visualisera aktuell status på dina värden, också sty
 - vanliga bolus+carbs
 - profilbyte
 
-<img src="./images/watch2.png" height=550>
+<img src="./images/watch2.png" height=350>
 
 Smart-klockor måste numera byggas separat på samma sätt som du bygger AAPS (man väljer bara en annan "Module" i byggsteget). läs [här](https://androidaps.readthedocs.io/en/latest/Hardware/Smartwatch.html) om aaps och smartwatch.
 Där står bland annat att du måste installera appen med "Wear installer", se [youtube-tutorial](https://www.youtube.com/watch?v=8HsfWPTFGQI). 
 
-<img src="./images/watch.png" height=550>
+<img src="./images/watch.png" height=350>
 
 ## NSClient (för föräldrar/följare)
 NSClient används för att monitorera och styra AAPS från en följartelefon. Det är en strippad version av AAPS, så den ser ut väldigt mycket som AAPS, men saknar funktionalitet. Om man i AAPS godkänner att NSClient får lov att göra ändringar, så kan man från NSClient-appen göra profil-byten och sätta TT (temporära target = målvärden). 
