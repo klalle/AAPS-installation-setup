@@ -336,7 +336,7 @@ Gå till inställningar (övre vänstra hörnets tre streck/Inställningar) och 
 - Alla följartelefoner: Välj `Nightscout Follower` och fyll i adressen till din NS-site (inkl `https://`) under "Nightscout Follow URL" som kommer upp under "Hårdvarukälla" i menyn. 
 - Om du vill kan du aktivera "Download Treatments" för att även se insulin och kh i xDrip, men jag har inte det då jag bara använde xDrip för larm.
 
-<img src="./images/xdrip_BYODA.png" height=600><img src="./images/xdrip_NS.png" height=550>
+<img src="./images/xdrip_BYODA.png" height=550><img src="./images/xdrip_NS.png" height=550>
 
 Gå till Inställningar/`Larm och varningar` (näst högst upp) och börja ovanifrån
 
