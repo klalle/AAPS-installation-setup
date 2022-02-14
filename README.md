@@ -170,6 +170,77 @@ Men här är lite kort info:
 
 Nu är det bara att börja jobba dig igenom Målen ett efter ett (läs snälla på om varje mål! finns länkar vid varje mål i appen och du har ju länken till "[Objectives](https://androidaps.readthedocs.io/en/latest/Usage/Objectives.html)"). När du är klar kommer du ha en vältrimmad loop som du förhoppningsvis vet hur du ska justera när insulinkänsligheten förändras. 
 
+### Målen i AAPS
+Målen 1-11 tar dig från genom alla steg för som gör att AAPS får mer och mer mandat att ta egna beslut och ge kraftigare och kraftigare korrigeringsdoser. Mål 3 är det som de flesta fastnar på och har frågor om, så jag tänkte förklara lite: 
+- **Mål 1**
+    - Valt din profil
+    - Fått BG-data från sensor
+    - Har kontakt med NS
+    - <img src="./images/obj_1.png" height="400">
+- **Mål 2**
+    - Testa lite funktionalitet genom att:
+        - Sätta temporär profil
+        - Koppla från pumpen å åtekloppla efter 1h (obs, detta är ett mål som inte är så logiskt när man kör omnipod, men du behöver ju inte ta av dig pumpen ändå, bara koppla från anslutningen till AAPS...)
+        - Skapa ett TT (Temporärt BG-mål)
+        - Ändra lite vad som syns i AAPS
+- **Mål 3**
+    - Bevisa din kunskap - Här är det många som fastnar då vissa frågor är lite konstiga. Jag reder ut de som jag tycker är knasiga:
+    - "insulinkänslighetsfaktor (ISF)"
+        - "ISF bör anges i dina AndoidAPS-inställningar"... 
+            - hint: profilen räknas inte som AndroidAPS-inställningar
+    - "Profilbyte"
+        - "ISF kommer att bli 10% högre"
+            - Jag hävdar att de har räknat fel här... ISF/0.9 blir inte 10 % högre, men det blir åtminståne inte lägre - så svara med en avrunding så blir det rätt!
+    - "Brusiga CGM-värden" 
+        - "Inaktivera closed loop-läge för att undvika över- eller underdosering" 
+            - Ja, på pappret, men frågan är hur många som gör det... men visst - tänk JÄTTE-brusiga värden som får loopen att gå bananas.
+        - "Kontrollera att din CGM-app ger utjämnande data."
+            - Den här frågan är nog inte utformade för BYODA-användare... om man däremot använder xDrip för att läsa ut BG, så finns valet att använda Dexcoms utjämnande algoritm, och vet man det så blir frågan med logisk
+    - "Insticksprogram för känslighet"
+        - Insticksprogram för känslighet ger användaren föreslagna ändringar av basaldoser, KH-kvoter och insulinkänslighetsfaltprer som kan användas för att redigera profilen.
+            - läs: ger autosens förslag på nya värden för IC, ISF och basal?
+        - "Vissa av insticksprogrammen har konfigurerbara tidsintervall som kan ställas in av användaren"
+            - hint: finns det nåt plugin som det går att ange ett tidsintervall på (har inget med autosens att göra)
+    - "Aktivt Insulin (IOB)"  
+        - Hint IOB är allt insulin i kroppen utöver det som är basal!
+- **Mål 4**
+    - Öppen loop
+        - Du får förslag av AAPS som du manuellt får godkänna - du måste agera på minst 20st för att bli godkänd och hålla på minst 7 dagar.
+        - Ställ in ett högre spann som BG-målvärde så slipper du får så många "tips" på temporära basal-ändringar... (när aaps är självgående senare så ställer man bara in ett mål-värde, inte ett spann)
+    - Gå igenom alla inställningar så att det ser bra ut
+- **Mål 5**
+    - Förstå din öppna loop (från mål 4)
+        - Du uppmanas titta på data/statistik-sidorna som finns i AAPS
+        - tips: kolla på NS-hemsidans report också!
+    - Målet har inget krav - bara en uppmaning att inte gå vidare förän du förstått och labbat dig fram till bra värden.
+- **Mål 6**
+    - Öppen loop med "Low Glucose Suspend" i minst 5 dagar ("Aktiverad funktion att stänga av vid lågt BG")
+        - Så typ en halv stängd loop
+        - AAPS får utan manuella åtgärder sänka eller helt stänga av basalen när den förutspår att du kommer bli låg (gå under target) men den får inte öka basalen om du inte 
+        - AAPS får alltså inte ge extra insulin (ökad basal) så länge IOB >= 0
+    - se upp för höga värden efter du varit låg, då AAPS kan ha kört på zero-temp (noll basal) när du förutspåts bli låg. 
+    - När du loopar om du inte gjort det förut, kommer du inse att du behöver mycket mindre druvsocker när du är låg, eftersom basalen automatiskt har varit avstängd långt innan du blev låg (när den förutspådde det) - så slå en kik på IOB när du är låg å notera hur hög du blir av korrigerings-kh!
+    - Tips, i graf 1: Aktivera IOB och COB så ser du dessa kurvor på varandra i lilla grafen under huvudgrafen (tryck på pilen uppe i stora grafens hörn och aktivera graf 1)
+- **Mål 7**
+    - Hurra nu börjar det roliga med stängd loop!
+    - Höj sakta din MaxIOB från 0 som i mål 6, till det du beräknar enl dokumentationen (står under objectives)
+    - När du känner att du fått koll på dina värden - gå vidare
+- **Mål 8**
+    - Aktivera Autosens som automatiskt försöker se om din insulinkänslighet ändras över tid och då korrigerar det genom att sätta en %-sats på din basal + ISF 
+        - OBS! IC påverkas inte! jag har försökt fråga varför, men inte fått gehör...
+    - Kör med autosens i minst 7 dagar
+- **Mål 9**
+    - Aktivera AMA "Advanced meal assist" som tillåter att systemet ger snabbare insulintillförsel om du matar in dina kh korrekt. 
+    - läs på om AMA och tweeka dina inställningar så att det funkar bra vid måltider
+    - Kör minst 28 dagar
+- **Mål 10**
+    - Aktivera oref1 (SMB) som ger mikrobolusar istället för (och tillsammans med) basaländringar för att snabbare korrigera dina svängningar. 
+- **Mål 11**
+    - Automationer
+
+
+
+
 
 ## Klocka
 Klockan kan förutom att visualisera aktuell status på dina värden, också styra AAPS: 
