@@ -11,6 +11,28 @@ Här nedan ser du hur vi satt upp vårt system. Har inte mer än testkört NSCli
 
 ![AAPS_system_overview](./images/AAPS_system_overview.png)
 
+Innehållsförteckning
+- [AAPS](#aaps)
+- [Förklaring av alla ingående komponenter](#förklaring-av-alla-ingående-komponenter)
+  - [Pumpar](#pumpar)
+  - [CGM](#cgm)
+  - [Nightscout](#nightscout)
+  - [Hur installerar man en app som inte kommer från google](#hur-installerar-man-en-app-som-inte-kommer-från-google)
+  - [Dexcom BYODA](#dexcom-byoda)
+  - [Installera Nightscout](#installera-nightscout)
+  - [Bygg AAPS](#bygg-aaps)
+  - [Installationer på telefon](#installationer-på-telefon)
+    - [Dexcom](#dexcom)
+    - [AAPS](#aaps-1)
+      - [Installationsguide:](#installationsguide)
+      - [Målen i AAPS](#målen-i-aaps)
+  - [Klocka](#klocka)
+  - [NSClient (för föräldrar/följare)](#nsclient-för-föräldrarföljare)
+  - [xDrip+](#xdrip)
+- [Gadgets](#gadgets)
+  - [M5Stack Nightscout](#m5stack-nightscout)
+  - [NightStander](#nightstander)
+
 
 ## Pumpar
 AAPS stödjer [flertalet pumpar](https://androidaps.readthedocs.io/en/latest/Hardware/pumps.html) varav några har stöd för blåtand så att de kan prata direkt med telefonen som kör AAPS, andra måste ha en länk mellan telefonen och pumpen (Rileylink, orangelink, emalink - de är samma länk-prylar som används av ios-loopare!):
@@ -170,7 +192,7 @@ Men här är lite kort info:
 
 Nu är det bara att börja jobba dig igenom Målen ett efter ett (läs snälla på om varje mål! finns länkar vid varje mål i appen och du har ju länken till "[Objectives](https://androidaps.readthedocs.io/en/latest/Usage/Objectives.html)"). När du är klar kommer du ha en vältrimmad loop som du förhoppningsvis vet hur du ska justera när insulinkänsligheten förändras. 
 
-### Målen i AAPS
+#### Målen i AAPS
 Målen 1-11 tar dig från genom alla steg för som gör att AAPS får mer och mer mandat att ta egna beslut och ge kraftigare och kraftigare korrigeringsdoser. Mål 3 är det som de flesta fastnar på och har frågor om, så jag tänkte förklara lite: 
 - **Mål 1**
     - Valt din profil
