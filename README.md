@@ -205,16 +205,16 @@ Målen 1-11 tar dig från genom alla steg för som gör att AAPS får mer och me
         - Hint IOB är allt insulin i kroppen utöver det som är basal!
 - **Mål 4**
     - Öppen loop
-        - Du får förslag av AAPS som du manuellt får godkänna - du måste agera på minst 20st för att bli godkänd och hålla på minst 7 dagar.
+        - Du får förslag av AAPS som du manuellt får godkänna - du måste agera på **minst 20st** för att bli godkänd och hålla på **minst 7 dagar**.
         - Ställ in ett högre spann som BG-målvärde så slipper du får så många "tips" på temporära basal-ändringar... (när aaps är självgående senare så ställer man bara in ett mål-värde, inte ett spann)
     - Gå igenom alla inställningar så att det ser bra ut
 - **Mål 5**
     - Förstå din öppna loop (från mål 4)
         - Du uppmanas titta på data/statistik-sidorna som finns i AAPS
         - tips: kolla på NS-hemsidans report också!
-    - Målet har inget krav - bara en uppmaning att inte gå vidare förän du förstått och labbat dig fram till bra värden.
+    - **Målet har inget krav** - bara en uppmaning att inte gå vidare förän du förstått och labbat dig fram till bra värden.
 - **Mål 6**
-    - Öppen loop med "Low Glucose Suspend" i minst 5 dagar ("Aktiverad funktion att stänga av vid lågt BG")
+    - Öppen loop med "Low Glucose Suspend" i **minst 5 dagar** ("Aktiverad funktion att stänga av vid lågt BG")
         - Så typ en halv stängd loop
         - AAPS får utan manuella åtgärder sänka eller helt stänga av basalen när den förutspår att du kommer bli låg (gå under target) men den får inte öka basalen om du inte 
         - AAPS får alltså inte ge extra insulin (ökad basal) så länge IOB >= 0
@@ -224,19 +224,21 @@ Målen 1-11 tar dig från genom alla steg för som gör att AAPS får mer och me
 - **Mål 7**
     - Hurra nu börjar det roliga med stängd loop!
     - Höj sakta din MaxIOB från 0 som i mål 6, till det du beräknar enl dokumentationen (står under objectives)
-    - När du känner att du fått koll på dina värden - gå vidare
-- **Mål 8**
+    - När du känner att du fått koll på dina värden och du har testat i **minst 1 dag** - gå vidare
+- **Mål 8 Borttaget i 3.0!!!**
     - Aktivera Autosens som automatiskt försöker se om din insulinkänslighet ändras över tid och då korrigerar det genom att sätta en %-sats på din basal + ISF 
         - OBS! IC påverkas inte! jag har försökt fråga varför, men inte fått gehör...
-    - Kör med autosens i minst 7 dagar
+    - Kör med autosens i **minst 7 dagar**
 - **Mål 9**
     - Aktivera AMA "Advanced meal assist" som tillåter att systemet ger snabbare insulintillförsel om du matar in dina kh korrekt. 
     - läs på om AMA och tweeka dina inställningar så att det funkar bra vid måltider
-    - Kör minst 28 dagar
+    - Kör **minst 28 dagar**
 - **Mål 10**
     - Aktivera oref1 (SMB) som ger mikrobolusar istället för (och tillsammans med) basaländringar för att snabbare korrigera dina svängningar. 
+    - Kör **minst 28 dagar**
 - **Mål 11**
     - Automationer
+    - Nu har du tillgång till allt!
 
 
 
