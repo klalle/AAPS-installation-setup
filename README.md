@@ -61,7 +61,7 @@ Vill du byta från ios loop till AAPS, så kan du börja med att köra dubbelt e
 ## Nightscout
 Nightscout (NS) är en moln-baserad tjänst som sparar och visualiserar/tillhandahåller historisk data från ditt loop-system. AAPS skickar upp sina värden och beräkningar till NS var 5e minut och NS tar emot datan och lagrar den i en databas som du själv har satt upp och har full kontroll över (Mongodb i Atlas).
 
-<img src="./images/NS_exempel_2.png" height=550>
+<img src="./images/NS_exempel_2.png" width=250>
 
 AAPS i sig är inte beroende av någon extern databas/tjänst (NS), men eftersom de absolut flesta användarna vill kunna titta på historisk data (längre tillbaka än de 48h som AAPS håller) och ha möjlighet för t.ex. föräldrar att följa AAPS på distans, så är det i nuläget tvingande att ha en NS (Nightscout) i de första målen och när man installerar AAPS. Till skillnad från att logga in på Dexcom och titta på dina BG-värden, kommer du kunna se ALL data i NS så som måltider, bolusar, temporära basaler och profilbyten. 
 
@@ -101,7 +101,7 @@ Vill du testa min moddade variant av NS, får du läsa i installations-steget hu
         - Inställningar/Appar/Särskild appåtkomst/Installera okända appar
         - Använd Inställningarnas sökfönster och sök efter "okända" eller "installera" om du inte hittar inställningen!
         - I den listan väljer "Drive" och tillåter att den får installera andra appar.
-        - <img src="./images/AllowInstalation.png" height=550>
+        - <img src="./images/AllowInstalation.png" width=250>
 
 
     - Dropbox funkar också, men tillåter inte direktinstallation från appen, då måste man först kopiera apk-filen till telefonens internminne (tre punkter/Exportera/Spara till Enhet) och sedan tillåta att t.ex. "Files by google" får installera appar (likt steget för Drive ovan).
@@ -122,7 +122,7 @@ Versionen av dexcom som vi har i Europa:
 
 Skippa INTE de 2h warmup utan värden och tillåt att dexcom skikar värden internt inom telefonen till AAPS och eventuellt xDrip (välj detta även om du inte har xDrip till att börja med)
 
-<img src="./images/BYODA_brodcast.png" height=550>
+<img src="./images/BYODA_brodcast.png" width=250>
 
 Resten är ganska själv-förklarande tror jag (använd default-värdena på de du är osäker på)
 
@@ -208,10 +208,10 @@ Tror att du automatiskt kommer till "Installationsguiden" (hittas annars i menyn
 - APS-läge - Börja med öppen loop (du måste manuellt genomföra alla ändringar. Du har ändå ingen rättighet att sätta på closed loop än...)
 - Känslighetsavkänning - sätt oref1. 
 
-<img src="./images/instal_1_visning.png" height=550> <img src="./images/instal_2_nsclient.png" height=150> <img src="./images/instal_2_nsclient_2.png" height=550> <img src="./images/instal_3_insu.png" height=550> <img src="./images/instal_4_BG.png" height=550> 
-<img src="./images/instal_5_dia.png" height=550> <img src="./images/instal_5_target.png" height=550><img src="./images/instal_5_CR.png" height=550><img src="./images/instal_5_done.png" height=550> 
-<img src="./images/instal_6_profil.png" height=550> <img src="./images/instal_6_profil2.png" height=550> <img src="./images/instal_7_pump.png" height=550> <img src="./images/instal_8_ama.png" height=550>
-<img src="./images/instal_9_loop.png" height=550> <img src="./images/instal_10_oref1.png" height=550>
+<img src="./images/instal_1_visning.png" width=250> <img src="./images/instal_2_nsclient.png" height=150> <img src="./images/instal_2_nsclient_2.png" width=250> <img src="./images/instal_3_insu.png" width=250> <img src="./images/instal_4_BG.png" width=250> 
+<img src="./images/instal_5_dia.png" width=250> <img src="./images/instal_5_target.png" width=250><img src="./images/instal_5_CR.png" width=250><img src="./images/instal_5_done.png" width=250> 
+<img src="./images/instal_6_profil.png" width=250> <img src="./images/instal_6_profil2.png" width=250> <img src="./images/instal_7_pump.png" width=250> <img src="./images/instal_8_ama.png" width=250>
+<img src="./images/instal_9_loop.png" width=250> <img src="./images/instal_10_oref1.png" width=250>
 
 Du hittar alla viktiga saker i de två menyerna i vardera övre hörnen. Jag kan inte gå igenom allt, du måste själv bekanta dig med var du hittar allt! Se [AndroidAPS screens](https://androidaps.readthedocs.io/en/latest/Getting-Started/Screenshots.html) för mer info!
 Men här är lite kort info:
@@ -222,7 +222,7 @@ Men här är lite kort info:
      inställningar (kugghjul) och väljer vilka flikar som ska synas (gröna ögat -> tryck i checkboxen så aktiveras en ny flik i huvudfönstret)
 - Högermenyn (tre prickar uppe till höger) här nås massor av inställningar 
 
-<img src="./images/overview.png" height=550> <img src="./images/hamburger.png" height=550> <img src="./images/konfigverktyg.png" height=550>
+<img src="./images/overview.png" width=250> <img src="./images/hamburger.png" width=250> <img src="./images/konfigverktyg.png" width=250>
 
 Nu är det bara att börja jobba dig igenom Målen ett efter ett (läs snälla på om varje mål! finns länkar vid varje mål i appen och du har ju länken till "[Objectives](https://androidaps.readthedocs.io/en/latest/Usage/Objectives.html)"). När du är klar kommer du ha en vältrimmad loop som du förhoppningsvis vet hur du ska justera när insulinkänsligheten förändras. 
 
@@ -232,7 +232,7 @@ Nu är det bara att börja jobba dig igenom Målen ett efter ett (läs snälla p
     - Valt din profil
     - Fått BG-data från sensor
     - Har kontakt med NS
-    - <img src="./images/obj_1.png" height=550>
+    - <img src="./images/obj_1.png" width=250>
 - **Mål 2**
     - Testa lite funktionalitet genom att:
         - Sätta temporär profil
@@ -336,30 +336,30 @@ Gå till inställningar (övre vänstra hörnets tre streck/Inställningar) och 
 - Alla följartelefoner: Välj `Nightscout Follower` och fyll i adressen till din NS-site (inkl `https://`) under "Nightscout Follow URL" som kommer upp under "Hårdvarukälla" i menyn. 
 - Om du vill kan du aktivera "Download Treatments" för att även se insulin och kh i xDrip, men jag har inte det då jag bara använde xDrip för larm.
 
-<img src="./images/xdrip_BYODA.png" height=550><img src="./images/xdrip_NS.png" height=550>
+<img src="./images/xdrip_BYODA.png" width=250><img src="./images/xdrip_NS.png" width=250>
 
 Gå till Inställningar/`Larm och varningar` (näst högst upp) och börja ovanifrån
 
-<img src="./images/xdrip_inst.png" height=550> 
+<img src="./images/xdrip_inst.png" width=250> 
 
 Här är lite tips på bra larm du kan aktivera
 - "Lista över glukosnivåvarningar"
     - Här skapar du larm för låga/höga BG-värden
     - Larmen kan vara olika för olika dagar/tider och du väljer själv melodi osv.
     - OBS! jag hade förut problem med att fylla i ett värde då xdrip inte tillåter mig att skriva "," men vägrar godta "."... skriv då på ett annat ställe i telefonen och kopiera/klistra in värdet (t.ex "3,5") i rutan
-    - <img src="./images/xdrip_BG.png" height=550> <img src="./images/xdrip_BG_low.png" height=550>
+    - <img src="./images/xdrip_BG.png" width=250> <img src="./images/xdrip_BG_low.png" width=250>
 - "Glukosvarningsinställningar"
     - "Intelligent snooze" & "Intelliganta larm" - Fantastiskt att slippa få larm om värdena ändå går åt rätt håll!
-    - <img src="./images/xdrip_glukvarninst.png" height=550> 
+    - <img src="./images/xdrip_glukvarninst.png" width=250> 
 - "Varning för missade avläsningar" 
     - Bra att ha för t.ex. följare!
 - "Andra varningar" 
     - "Bg falling fast" 
     - "Bg rising fast"
-    - <img src="./images/xdrip_BG_fallfast.png" height=550> 
+    - <img src="./images/xdrip_BG_fallfast.png" width=250> 
 - "Ytterligare varningar (xDrip+)"
     - "Larm vid beständigt högt" - Använde jag som följare för att slippa få larm bara för att det blev högt ett litet tag
-    - <img src="./images/xdrip_larmBest.png" height=550> 
+    - <img src="./images/xdrip_larmBest.png" width=250> 
 
 Det finns säker fler larm som är praktiska än de jag visat ovan. 
 
