@@ -227,7 +227,7 @@ Nu är det bara att börja jobba dig igenom Målen ett efter ett (läs snälla p
 - **Mål 4**
     - Öppen loop
         - Du får förslag av AAPS som du manuellt får godkänna - du måste agera på **minst 20st** för att bli godkänd och hålla på **minst 7 dagar**.
-        - Ställ in ett högre spann som BG-målvärde så slipper du får så många "tips" på temporära basal-ändringar... (när aaps är självgående senare så ställer man bara in ett mål-värde, inte ett spann)
+        - Ställ in ett högre spann som BG-målvärde så slipper du får så många "tips" på temporära basal-ändringar... (när aaps är självgående, mål 7, så ställer man bara in ett mål-värde, inte ett spann, ex: 5,5-5,5)
     - Gå igenom alla inställningar så att det ser bra ut
 - **Mål 5**
     - Förstå din öppna loop (från mål 4)
