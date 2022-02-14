@@ -2,7 +2,7 @@
 AAPS (AndroidAPS) är byggt med ett stort säkerhetstänk och du kommer (till skillnad från ios-loop) INTE tillåtas att slå på en loop som är helt självgående och pytsar i insulin från början, utan du lotsas genom ett helt gäng "Mål" som du måste ta dig igenom och sakta men säkert öppna upp fler funktioner som tillslut gör loopen mer och mer självgående och kraftfullare. 
 Se till att du läser på  hur appen fungerar så att du kan styra den på ett säkert sätt. [Dokumentationen](https://androidaps.readthedocs.io/en/latest) är på engelska, men lättläst - är det nåt du inte förstår, så ställ en fråga i fb-gruppen [Looped - Sweden](https://www.facebook.com/groups/loopedsweden) eller den internationella [AndroidAPS users](https://www.facebook.com/groups/AndroidAPSUsers). Tips är också att sökfunktionen är bra (dock kan det vara svårt att komma på översättningen då AAPS-appen är på svenska)
 
-<img src="./images/search.png" height=300>
+<img src="./images/search.png" width=240>
 
 AAPS och installationsprocess är väldokumenterad, men jag tycker att den saknar en röd tråd för hur allt hänger ihop så jag tänkte förtydliga lite med ett exempel på hur jag har satt upp systemet.
 
@@ -61,13 +61,13 @@ Vill du byta från ios loop till AAPS, så kan du börja med att köra dubbelt e
 ## Nightscout
 Nightscout (NS) är en moln-baserad tjänst som sparar och visualiserar/tillhandahåller historisk data från ditt loop-system. AAPS skickar upp sina värden och beräkningar till NS var 5e minut och NS tar emot datan och lagrar den i en databas som du själv har satt upp och har full kontroll över (Mongodb i Atlas).
 
-<img src="./images/NS_exempel_2.png" width=250>
+<img src="./images/NS_exempel_2.png" width=700>
 
 AAPS i sig är inte beroende av någon extern databas/tjänst (NS), men eftersom de absolut flesta användarna vill kunna titta på historisk data (längre tillbaka än de 48h som AAPS håller) och ha möjlighet för t.ex. föräldrar att följa AAPS på distans, så är det i nuläget tvingande att ha en NS (Nightscout) i de första målen och när man installerar AAPS. Till skillnad från att logga in på Dexcom och titta på dina BG-värden, kommer du kunna se ALL data i NS så som måltider, bolusar, temporära basaler och profilbyten. 
 
 Det är väldigt viktigt att den som loopar förstår hur loopen tänker, och att man förstår varför den gör som den gör i olika lägen! Det lär man sig absolut bäst genom att titta på historisk data i t.ex. NS-hemsidans rapport-verktyg där det framkommer väldigt tydligt hur AAPS har jobbat.
 
-<img src="./images/NS_rapport_1.png" height=500px;>
+<img src="./images/NS_rapport_1.png" width=700>
 
 Obs, jag har modifierat koden lite och bl.a. flyttat upp IOB och COB-graferna och ändrat lite text mm, så din NS-rapport kommer inte se ut precis som bilden ovan!
 
@@ -78,13 +78,13 @@ Sidan innheåller också lite övrig statistik:
 - etc...
 
 lite exempel på hur det kan se ut: 
-<img src="./images/NS_rapport_2.png" height=200>
-<img src="./images/NS_rapport_3.png" height=300>
-<img src="./images/NS_rapport_4.png" height=300>
+<img src="./images/NS_rapport_2.png" width=700>
+<img src="./images/NS_rapport_3.png" width=700>
+<img src="./images/NS_rapport_4.png" width=700>
 
 Du kan även se historiken på de profiler du har haft vilket kan vara väldigt bra att se hur man har ändrat sina värden... (även här har jag ändrat i koden, så att alla timmar syns och de ändrade värdena färgläggs.)
 
-<img src="./images/NS_rapport_5.png" height=500>
+<img src="./images/NS_rapport_5.png" width=300>
 
 Vill du testa min moddade variant av NS, får du läsa i installations-steget hur du gör.
 
@@ -101,7 +101,7 @@ Vill du testa min moddade variant av NS, får du läsa i installations-steget hu
         - Inställningar/Appar/Särskild appåtkomst/Installera okända appar
         - Använd Inställningarnas sökfönster och sök efter "okända" eller "installera" om du inte hittar inställningen!
         - I den listan väljer "Drive" och tillåter att den får installera andra appar.
-        - <img src="./images/AllowInstalation.png" width=250>
+        - <img src="./images/AllowInstalation.png" width=200>
 
 
     - Dropbox funkar också, men tillåter inte direktinstallation från appen, då måste man först kopiera apk-filen till telefonens internminne (tre punkter/Exportera/Spara till Enhet) och sedan tillåta att t.ex. "Files by google" får installera appar (likt steget för Drive ovan).
@@ -114,15 +114,15 @@ När du fyller i detta formulär är det viktigt att du väljer rätt på dessa 
 
 Tillåt att den installeras på ALLA android-telefoner
 
-<img src="./images/BYODA_devices.png" height=100>
+<img src="./images/BYODA_devices.png" width=500>
 
 Versionen av dexcom som vi har i Europa:
 
-<img src="./images/BYODA_version.png" height=250>
+<img src="./images/BYODA_version.png" width=500>
 
 Skippa INTE de 2h warmup utan värden och tillåt att dexcom skikar värden internt inom telefonen till AAPS och eventuellt xDrip (välj detta även om du inte har xDrip till att börja med)
 
-<img src="./images/BYODA_brodcast.png" width=250>
+<img src="./images/BYODA_brodcast.png" width=500>
 
 Resten är ganska själv-förklarande tror jag (använd default-värdena på de du är osäker på)
 
