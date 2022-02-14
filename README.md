@@ -28,6 +28,7 @@ Här nedan ser du hur vi satt upp vårt system. Har inte mer än testkört NSCli
   - [Klocka](#klocka)
   - [NSClient (för föräldrar/följare)](#nsclient-för-föräldrarföljare)
   - [xDrip+](#xdrip)
+  - [OmnipodStash](#omnipodstash)
   - [Gadgets](#gadgets)
     - [M5Stack Nightscout](#m5stack-nightscout)
     - [NightStander](#nightstander)
@@ -362,6 +363,15 @@ Här är lite tips på bra larm du kan aktivera
     - <img src="./images/xdrip_larmBest.png" width=250> 
 
 Det finns säker fler larm som är praktiska än de jag visat ovan. 
+
+## OmnipodStash
+Jag har byggt en liten applikation som man kan installera bredvid NS och som håller koll på lagret av poddar/sensorer och insulin man har kvar där hemma. Poddar och sensorer registrerar AAPS vid byten, så de räknas ner automatiskt - insulinflaskor får du registrera manuellt när en tagit slut.
+
+Installationsbeskrivning finns [här](https://github.com/maja-lofgren/omnipod_stash)
+
+<img src="https://github.com/maja-lofgren/omnipod_stash/blob/master/Assets/website.png" width=250> 
+
+
 
 ## Gadgets
 ### M5Stack Nightscout
