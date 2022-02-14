@@ -251,9 +251,9 @@ Målen 1-11 tar dig från genom alla steg för som gör att AAPS får mer och me
         - OBS! IC påverkas inte! jag har försökt fråga varför, men inte fått gehör...
     - Kör med autosens i **minst 7 dagar**
 - **Mål 9 Borttaget i 3.0!!!**
-    - Aktivera AMA "Advanced meal assist" som tillåter att systemet ger snabbare insulintillförsel om du matar in dina kh korrekt. 
-    - läs på om AMA och tweeka dina inställningar så att det funkar bra vid måltider
-    - Kör **minst 28 dagar**
+    - ~~Aktivera AMA "Advanced meal assist" som tillåter att systemet ger snabbare insulintillförsel om du matar in dina kh korrekt. ~~
+    - ~~läs på om AMA och tweeka dina inställningar så att det funkar bra vid måltider~~
+    - ~~Kör **minst 28 dagar**~~
 - **Mål 10**
     - Aktivera oref1 (SMB) som ger mikrobolusar istället för (och tillsammans med) basaländringar för att snabbare korrigera dina svängningar. 
     - Kör **minst 28 dagar**
