@@ -323,11 +323,11 @@ NSClient används för att monitorera och styra AAPS från en följartelefon. De
 All övrig styrning går att sköta via [sms-komandon](https://androidaps.readthedocs.io/en/latest/Children/SMS-Commands.html?highlight=sms) (telefonnumret måste vara aktiverat i AAPS).
 Läs på om [Remote monitoring med AAPS](https://androidaps.readthedocs.io/en/latest/Children/Children.html)
 
-<img src="./images/remote.png>
+<img src="./images/remote.png">
 
 NSClient är en app som (oftast) inte behöver byggas själv, utan släpps med senaste releasen av AAPS och kan laddas ner från [github](https://github.com/nightscout/AndroidAPS/releases/) där du hittar två byggda apk-filer (för att kunna styra 2 barn med olika AAPS). För över med Drive och installera som de övriga apparna. 
 
-<img src="./images/nsclientapk.png>
+<img src="./images/nsclientapk.png">
  
 ## xDrip+
 Installera xDrip+ från apk-filen du laddat ner i tidigare skede. 
