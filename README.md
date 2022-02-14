@@ -371,7 +371,7 @@ Jag har byggt en liten applikation som man kan installera bredvid NS och som hå
 
 Installationsbeskrivning finns [här](https://github.com/maja-lofgren/omnipod_stash)
 
-<img src="https://github.com/maja-lofgren/omnipod_stash/blob/master/Assets/website.png" width=250> 
+<img src="./images/omnipodstash.png"> 
 
 
 
