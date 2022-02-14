@@ -11,8 +11,28 @@ Här nedan ser du hur vi satt upp vårt system. Har inte mer än testkört NSCli
 
 ![AAPS_system_overview](./images/AAPS_system_overview.png)
 
+Innehåll: 
 
-## Pumpar
+1. [Pumpar](#Pumpar)
+2. [CGM](#CGM)
+3. [Nightscout](#Nightscout)
+4. [Hur installerar man en app som inte kommer från google](#Hurinstallerarmanenappsomintekommerfrngoogle)
+5. [Dexcom BYODA](#DexcomBYODA)
+6. [Installera Nightscout](#InstalleraNightscout)
+7. [Bygg AAPS](#ByggAAPS)
+8. [Installationer på telefon](#Installationerptelefon)
+	8.1. [Dexcom](#Dexcom)
+	8.2. [AAPS](#AAPS)
+		8.2.1. [Installationsguide:](#Installationsguide:)
+	8.3. [Målen i AAPS](#MleniAAPS)
+9. [Klocka](#Klocka)
+10. [NSClient (för föräldrar/följare)](#NSClientfrfrldrarfljare)
+11. [xDrip+](#xDrip)
+12. [M5Stack Nightscout](#M5StackNightscout)
+13. [NightStander](#NightStander)
+
+
+##  1. <a name='Pumpar'></a>Pumpar
 AAPS stödjer [flertalet pumpar](https://androidaps.readthedocs.io/en/latest/Hardware/pumps.html) varav några har stöd för blåtand så att de kan prata direkt med telefonen som kör AAPS, andra måste ha en länk mellan telefonen och pumpen (Rileylink, orangelink, emalink - de är samma länk-prylar som används av ios-loopare!):
 - Accu-Chek Combo
 - Accu-Chek Insight
@@ -26,7 +46,7 @@ AAPS stödjer [flertalet pumpar](https://androidaps.readthedocs.io/en/latest/Har
 
 Vi har gått över till Omnipod DASH som har fått fullt stöd nu i AAPS 3.0. Fördelen med DASH över EROS är att den kommunicerar över blåtand och då behövs inte en Rileylink. Sitter du på Eros kan jag tipsa om att direkt ansöka om att få byta till DASH! Vi fick byta på en vecka trots att receptet hade långt kvar på Eros! Mycket bättre kontakt, en färre pryl att ha koll på/ladda och den återansluter jättebra vid tappad kontakt! Notera dock att [inte alla Android-telefoners](https://docs.google.com/spreadsheets/d/1zO-Vf3wv0jji5Gflk6pe48oi348ApF5RvMcI6NG5TnY) blåtand fungerar så bra med DASH's då den är väldigt energisnål"!
 
-## CGM
+##  2. <a name='CGM'></a>CGM
 Alla loop-system är beroende av en stabil och korrekt CGM (koninuerlig glukos-mätare) som levererar ett BG-värde minst var 5e minut. AAPS rekomenderar i nuläget Dexcom G6, då det är den som har tillräckligt stabil mätning och utjämnande algoritm för att kunna aktivera den mer aggresiva typen av loop (SMB). Det går att loopa med [de andra systemen också](https://androidaps.readthedocs.io/en/latest/Configuration/BG-Source.html), men då kommer AAPS inte tillåta användning av SMB (Super micro bolus) fullt ut, vilket vore tråkigt att vara utan - men funkar helt ok ändå, bara inte lika aggresivt. 
 
 Nu för tiden rekomenderar utvecklarna av AAPS att vi använder den så kallade BYODA ("Bygg din egen Dexcom-app"), vissa använder xDrip för att hämta BG-värden från sändaren, men den har inte lika bra back-fill funktionsalitet som BYODA (vid missade värden) så vi har bara använt BYODA! En annan fördel med BYODA är att den fortfarande skickar upp värden till dexcoms servrar och då fortfarande fungerar med Diasend!. 
@@ -37,7 +57,7 @@ Vill du byta från ios loop till AAPS, så kan du börja med att köra dubbelt e
 
 
 
-## Nightscout
+##  3. <a name='Nightscout'></a>Nightscout
 Nightscout (NS) är en moln-baserad tjänst som sparar och visualiserar/tillhandahåller historisk data från ditt loop-system. AAPS skickar upp sina värden och beräkningar till NS var 5e minut och NS tar emot datan och lagrar den i en databas som du själv har satt upp och har full kontroll över (Mongodb i Atlas).
 
 AAPS i sig är inte beroende av någon extern databas/tjänst (NS), men eftersom de absolut flesta användarna vill kunna titta på historisk data (längre tillbaka än de 48h som AAPS håller) och ha möjlighet för t.ex. föräldrar att följa AAPS på distans, så är det i nuläget tvingande att ha en NS (Nightscout) i de första målen och när man installerar AAPS. Till skillnad från att logga in på Dexcom och titta på dina BG-värden, kommer du kunna se ALL data i NS så som måltider, bolusar, temporära basaler och profilbyten. 
@@ -47,7 +67,7 @@ Det är väldigt viktigt att den som loopar förstår hur loopen tänker, och at
 ![BYODA-version](./images/NS_exempel.png)
 Obs, jag har modifierat koden lite och bl.a. flyttat upp IOB och COB-graferna och ändrat lite text mm, så din NS-rapport kommer inte se ut precis som bilden ovan! vill du testa det, får du istället forka [min fork av nightscout](https://github.com/klalle/cgm-remote-monitor) i installations-steget
 
-## Hur installerar man en app som inte kommer från google
+##  4. <a name='Hurinstallerarmanenappsomintekommerfrngoogle'></a>Hur installerar man en app som inte kommer från google
 1.  Stäng av "Play protect"
     - Play protect ska behållas avslagen då den annars kommer försöka stänga av alla dina AAPS-appar varje natt!
     - Inställningar/Säkerhet/Appsäkerhet/Kugghjulet uppe till höger
@@ -67,7 +87,7 @@ Obs, jag har modifierat koden lite och bl.a. flyttat upp IOB och COB-graferna oc
 
 
 
-## Dexcom BYODA
+##  5. <a name='DexcomBYODA'></a>Dexcom BYODA
 Den oficiella Dexcom-appen är låst till att bara fungera på vissa mobiler och den är också låst till att bara skicka sin data till Dexcom-share. Du behöver en Dexcom-app som förutom att skicka till Dexcom-share och diasend, också delar med sig av BG-värden till AAPS (och xDrip). För detta finns en patchad (hackad) variant som du själv [konfigurerar/bygger i ett google-formulär](https://docs.google.com/forms/d/e/1FAIpQLScD76G0Y-BlL4tZljaFkjlwuqhT83QlFM5v6ZEfO7gCU98iJQ/viewform?fbzx=2196386787609383750&fbclid=IwAR2aL8Cps1s6W8apUVK-gOqgGpA-McMPJj9Y8emf_P0-_gAsmJs6QwAY-o0) och sedan får en länk att ladda ner appen (apk-filen).
 När du fyller i detta formulär är det viktigt att du väljer rätt på dessa inställningar: 
 
@@ -89,13 +109,13 @@ Du får nu ett mejl med en nedladdningslänk inom 5min som du laddar ner och lä
 
 Under tiden så kan du passa på att ladda ner xDrip+ [här](https://xdrip-plus-updates.appspot.com/stable/xdrip-plus-latest.apk) som du också lägger på Drive (den kommer du vilja ha för larm!).
 
-## Installera Nightscout
+##  6. <a name='InstalleraNightscout'></a>Installera Nightscout
 
 Installation av NS är väl beskrivet i detalj [här](http://nightscout.github.io/nightscout/new_user/), vill du i stället ha det berättat för dig, så har Jonas Hummelstrand gjort en [youtube-tutorial](https://youtu.be/rNIpmIhPCpU) på svenska där han går igenom processen steg för steg. OBS! Skippa allt som har med BRIDGE att göra (steg 13 och framåt), du ska INTE sätta upp Dexcom bridge då vi istället ska skicka upp all data direkt från AAPS. 
 
 När du är klar med detta steg så har du fortfarande ingen data att visa, men det ska gå att komma åt NS-hemsidan i en webläsare!
 
-## Bygg AAPS
+##  7. <a name='ByggAAPS'></a>Bygg AAPS
 För att verkligen vara tydlig med att detta är ett DIY-system och att du tar fullt ansvar för alla följder som kan tänkas bli, så måste du själv ladda ner koden från Github och bygga appen. Jag tänkte inte gå igenom alla steg då de är väl beskrivna [här](https://androidaps.readthedocs.io/en/latest/Installing-AndroidAPS/Building-APK.html), men som det ser ut nu, så är ett av de sista stegen i `Build the app` fel, och gör att många fastnar... 
 
 I steget när du har byggt appen i AndroidStudio och öppnar "Event log" så kommer det inte alls stå att du byggt "1 variant" med en länk. Det du egentligen ska kolla efter är att det INTE står nåt i stil med: 
@@ -111,11 +131,11 @@ Och nu måste du själv leta reda på apk-filen som kommer ligga under mappen so
 
 Ta nu och ladda upp `app-full-release.apk` till Drive och du kan från och med nu fokusera helt på mobiltelefonen.
 
-## Installationer på telefon
+##  8. <a name='Installationerptelefon'></a>Installationer på telefon
 Nu kommer det roliga.
 Förutsättning är att du har Drive på telefonen så att du ser dina uppladdade appar (.apk-filer)
 
-### Dexcom
+###  8.1. <a name='Dexcom'></a>Dexcom
 Läs mer [här](https://androidaps.readthedocs.io/en/latest/Hardware/DexcomG6.html#if-using-g6-with-build-your-own-dexcom-app) om du vill se vad dokumentationen säger...
 - Om du har kör original-dexcom-appen och har en aktiv sensor+sändare så kan du byta till BYODA utan att förlora någon av dom!
     - Gå in i original-Dexcom-appen och skriv noga ner de sensor-koden och sändar-serienummer som du har för de aktiva sensorn och sändaren. 
@@ -126,10 +146,10 @@ Läs mer [här](https://androidaps.readthedocs.io/en/latest/Hardware/DexcomG6.ht
         - In phone settings go to apps > Dexcom G6 > permissions > additional permissions and press ‘Access Dexcom app’.
     - Efter ett tag så kommer appen hitta sändaren och börja logga värden precis som förut. Enda skillnaden är att den också tillåter AAPS/xdrip att få tillgång till datan. 
 
-### AAPS
+###  8.2. <a name='AAPS'></a>AAPS
 Installera nu AAPS genom att trycka på `app-full-release.apk`-filen i Drive
 Tror att du automatiskt kommer till "Installationsguiden" (hittas annars i menyn 3-punkter övre högra hörnet/installationsguide)
-#### Installationsguide:
+####  8.2.1. <a name='Installationsguide:'></a>Installationsguide:
 - Alla inställningar kommer kunna ändras senare, så ingen panik att det måste bli rätt från början. Du kommer INTE tillåtas att slå på en loop som är helt självgående och pytsar i insulin från början, utan du lotsas genom ett helt gäng "Mål" som du måste ta dig igenom och sakta men säkert öppna upp fler funktioner som tillslut gör loopen mer och mer självgående och kraftfullare. 
 - Se lite screenshots nedanför denna lista: 
 - Godkänn allt som AAPS vill ha, behövigheter/platsåtkomst mm
@@ -170,7 +190,7 @@ Men här är lite kort info:
 
 Nu är det bara att börja jobba dig igenom Målen ett efter ett (läs snälla på om varje mål! finns länkar vid varje mål i appen och du har ju länken till "[Objectives](https://androidaps.readthedocs.io/en/latest/Usage/Objectives.html)"). När du är klar kommer du ha en vältrimmad loop som du förhoppningsvis vet hur du ska justera när insulinkänsligheten förändras. 
 
-### Målen i AAPS
+###  8.3. <a name='MleniAAPS'></a>Målen i AAPS
 Målen 1-11 tar dig från genom alla steg för som gör att AAPS får mer och mer mandat att ta egna beslut och ge kraftigare och kraftigare korrigeringsdoser. Mål 3 är det som de flesta fastnar på och har frågor om, så jag tänkte förklara lite: 
 - **Mål 1**
     - Valt din profil
@@ -244,7 +264,7 @@ Målen 1-11 tar dig från genom alla steg för som gör att AAPS får mer och me
 
 
 
-## Klocka
+##  9. <a name='Klocka'></a>Klocka
 Klockan kan förutom att visualisera aktuell status på dina värden, också styra AAPS: 
 - TT (temporära target)
 - Bolus-kalkylatorn
@@ -259,7 +279,7 @@ Där står bland annat att du måste installera appen med "Wear installer", se [
 
 <img src="./images/watch.png" height="400">
 
-## NSClient (för föräldrar/följare)
+##  10. <a name='NSClientfrfrldrarfljare'></a>NSClient (för föräldrar/följare)
 NSClient används för att monitorera och styra AAPS från en följartelefon. Det är en strippad version av AAPS, så den ser ut väldigt mycket som AAPS, men saknar funktionalitet. Om man i AAPS godkänner att NSClient får lov att göra ändringar, så kan man från NSClient-appen göra profil-byten och sätta TT (temporära target = målvärden). 
 
 All övrig styrning går att sköta via [sms-komandon](https://androidaps.readthedocs.io/en/latest/Children/SMS-Commands.html?highlight=sms) (telefonnumret måste vara aktiverat i AAPS).
@@ -271,7 +291,7 @@ NSClient är en app som (oftast) inte behöver byggas själv, utan släpps med s
 
 <img src="./images/nsclientapk.png">
  
-## xDrip+
+##  11. <a name='xDrip'></a>xDrip+
 Installera xDrip+ från apk-filen du laddat ner i tidigare skede. 
 Gå till inställningar (övre vänstra hörnets tre streck/Inställningar) och börja med att välja "Hårdvarudatakälla" (BG-källa).
 - Telefonen med BYODA och AAPS: välj `640G / EverSense`
@@ -306,12 +326,12 @@ Här är lite tips på bra larm du kan aktivera
 Det finns säker fler larm som är praktiska än de jag visat ovan. 
 
 # Gadgets
-## M5Stack Nightscout
+##  12. <a name='M5StackNightscout'></a>M5Stack Nightscout
 Vi har kört en [M5Stack Nightscout](https://www.facebook.com/groups/606295776549008) som är en lite rolig pryl som visar data från NS och kan larma (som en sängklocka eller på arbetsbordet)
 
 <img src="./images/m5stack.png" height=200><img src="./images/m5stack_2.png" height=200>
 
-## NightStander
+##  13. <a name='NightStander'></a>NightStander
 Daniel Mini Johansson i Looped - Sweden har utvecklat [NightStander](https://github.com/MiniJoko/NightStander) - en egen pryl som kan visa NS-data och har lite funktioner som kan prata med åtminstone ios-loop (vet inte hur de lirar med AAPS!?)
 
 <img src="https://github.com/MiniJoko/NightStander/blob/main/resources/img/product.png" height=200>
