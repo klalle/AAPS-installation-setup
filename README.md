@@ -27,7 +27,9 @@ Vi har gått över till Omnipod DASH som har fått fullt stöd nu i AAPS 3.0. F�
 ## CGM
 Alla loop-system är beroende av en stabil och korrekt CGM (koninuerlig glukos-mätare) som levererar ett BG-värde minst var 5e minut. AAPS rekomenderar i nuläget Dexcom G6, då det är den som har tillräckligt stabil mätning och utjämnande algoritm för att kunna aktivera den mer aggresiva typen av loop (SMB). Det går att loopa med [de andra systemen också](https://androidaps.readthedocs.io/en/latest/Configuration/BG-Source.html), men då kommer AAPS inte tillåta användning av SMB (Super micro bolus) fullt ut, vilket vore tråkigt att vara utan - men funkar helt ok ändå, bara inte lika aggresivt. 
 
-Nu för tiden rekomenderar utvecklarna för AAPS att vi använder den så kallade BYODA ("Bygg din egen Dexcom-app"), vissa använder xDrip för att hämta BG-värden från sändaren, men det har krånglat på sistone, och BYODA funkar utmärkt (och kan fortsätta skicka till diasend!) Det rekomenderade är att endast använda xDrip som larm-app då den har mycket fler och bättre larm-funktionalitet och funkar både på loop-telefonen och på följar-telefoner. 
+Nu för tiden rekomenderar utvecklarna av AAPS att vi använder den så kallade BYODA ("Bygg din egen Dexcom-app"), vissa använder xDrip för att hämta BG-värden från sändaren, men den har inte lika bra back-fill funktionsalitet som BYODA (vid missade värden) så vi har bara använt BYODA! En annan fördel med BYODA är att den fortfarande skickar upp värden till dexcoms servrar och då fortfarande fungerar med Diasend!. 
+
+Jag kan ändå verkligen rekommendera att ni installerar xDrip+appen också då den har fantastiska "smarta" larm som kan konfigueras att agera olika beroende på dagar/tider och om BS är på väg åt rätt håll eller bara larma vid bestående hög mm. xDrip funkar både på loop-telefonen och på följar-telefoner (loop-telefonens xDrip får värden direkt från BYODA, följarnas hämtas via NS)
 
 Vill du byta från ios loop till AAPS, så kan du börja med att köra dubbelt ett tag (upp till mål 5!?), då kör du virtuell pump och ställer in `NSClient BG` som din BG-källa, så laddas de i stället ner från NS. 
 
@@ -194,6 +196,39 @@ NSClient är en app som (oftast) inte behöver byggas själv, utan släpps med s
 
 <img src="./images/nsclientapk.png">
  
+## xDrip+
+Installera xDrip+ från apk-filen du laddat ner i tidigare skede. 
+Gå till inställningar (övre vänstra hörnets tre streck/Inställningar) och börja med att välja "Hårdvarudatakälla" (BG-källa).
+- Telefonen med BYODA och AAPS: välj `640G / EverSense`
+- Alla följartelefoner: Välj `Nightscout Follower` och fyll i adressen till din NS-site (inkl `https://`) under "Nightscout Follow URL" som kommer upp under "Hårdvarukälla" i menyn. 
+- Om du vill kan du aktivera "Download Treatments" för att även se insulin och kh i xDrip, men jag har inte det då jag bara använde xDrip för larm.
+
+<img src="./images/xdrip_BYODA.png" height="400"><img src="./images/xdrip_NS.png" height="400">
+
+Gå till Inställningar/`Larm och varningar` (näst högst upp) och börja ovanifrån
+
+<img src="./images/xdrip_inst.png" height="400"> 
+
+Här är lite tips på bra larm du kan aktivera
+- "Lista över glukosnivåvarningar"
+    - Här skapar du larm för låga/höga BG-värden
+    - Larmen kan vara olika för olika dagar/tider och du väljer själv melodi osv.
+    - OBS! jag hade förut problem med att fylla i ett värde då xdrip inte tillåter mig att skriva "," men vägrar godta "."... skriv då på ett annat ställe i telefonen och kopiera/klistra in värdet (t.ex "3,5") i rutan
+    - <img src="./images/xdrip_BG.png" height="400"> <img src="./images/xdrip_BG_low.png" height="400">
+- "Glukosvarningsinställningar"
+    - "Intelligent snooze" & "Intelliganta larm" - Fantastiskt att slippa få larm om värdena ändå går åt rätt håll!
+    - <img src="./images/xdrip_glukvarninst.png" height="400"> 
+- "Varning för missade avläsningar" 
+    - Bra att ha för t.ex. följare!
+- "Andra varningar" 
+    - "Bg falling fast" 
+    - "Bg rising fast"
+    - <img src="./images/xdrip_BG_fallfast.png" height="400"> 
+- "Ytterligare varningar (xDrip+)"
+    - "Larm vid beständigt högt" - Använde jag som följare för att slippa få larm bara för att det blev högt ett litet tag
+    - <img src="./images/xdrip_larmBest.png" height="400"> 
+
+Det finns säker fler larm som är praktiska än de jag visat ovan. 
 
 # Gadgets
 ## M5Stack Nightscout
