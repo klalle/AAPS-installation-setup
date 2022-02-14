@@ -245,7 +245,7 @@ Nu är det bara att börja jobba dig igenom Målen ett efter ett (läs snälla p
 - **Mål 7**
     - Hurra nu börjar det roliga med stängd loop!
     - Höj sakta din MaxIOB från 0 som i mål 6, till det du beräknar enl dokumentationen (står under objectives)
-    - Tips är att nu ställa in ett målvärde istället för ett spann. 
+    - Tips är att nu ställa in ett målvärde istället för ett spann så kommer aaps konstant att försöka korrigera dig var 5e minut för att nå mot målet.  
       - Gör det genoma att speca spannet som ex: 5,5-5,5...
     - När du känner att du fått koll på dina värden och du har testat i **minst 1 dag** - gå vidare
 - **Mål 8**
