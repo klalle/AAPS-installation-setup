@@ -384,6 +384,9 @@ Där står bland annat att du måste installera appen med "Wear installer", se [
 NSClient används för att monitorera och styra AAPS från en följartelefon. Det är en strippad version av AAPS, så den ser ut väldigt mycket som AAPS, men saknar funktionalitet. Om man i AAPS godkänner att NSClient får lov att göra ändringar, så kan man från NSClient-appen göra profil-byten och sätta TT (temporära target = målvärden). 
 
 All övrig styrning går att sköta via [sms-komandon](https://androidaps.readthedocs.io/en/latest/Children/SMS-Commands.html?highlight=sms) (telefonnumret måste vara aktiverat i AAPS).
+
+Obs! NSclient-appen funkar bara på Android-telefoner, men det går utmärkt att som följare köra iOS och ha nån anna nightscout-klient / xdrip för ios och sköta remote-styrningen via sms!
+
 Läs på om [Remote monitoring med AAPS](https://androidaps.readthedocs.io/en/latest/Children/Children.html)
 
 <img src="./images/remote.png">
