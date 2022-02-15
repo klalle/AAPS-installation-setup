@@ -78,7 +78,9 @@ Sidan innheåller också lite övrig statistik:
 - Tid i fluktuation
 - etc...
 
-lite exempel på hur det kan se ut: 
+<details>
+  <summary><b>lite exempel på hur det kan se ut...</b></summary>
+
 <img src="./images/NS_rapport_2.png" width=700>
 <img src="./images/NS_rapport_3.png" width=700>
 <img src="./images/NS_rapport_4.png" width=700>
@@ -86,6 +88,8 @@ lite exempel på hur det kan se ut:
 Du kan även se historiken på de profiler du har haft vilket kan vara väldigt bra att se hur man har ändrat sina värden... (även här har jag ändrat i koden, så att alla timmar syns och de ändrade värdena färgläggs.)
 
 <img src="./images/NS_rapport_5.png" width=300>
+
+</details>
 
 Vill du testa min moddade variant av NS, får du läsa i installations-steget hur du gör.
 
@@ -396,8 +400,9 @@ Gå till inställningar (övre vänstra hörnets tre streck/Inställningar) och 
 Gå till Inställningar/`Larm och varningar` (näst högst upp) och börja ovanifrån
 
 <img src="./images/xdrip_inst.png" width=250> 
+<details>
+  <summary><b>Här är lite tips på bra larm du kan aktivera...</b></summary>>
 
-Här är lite tips på bra larm du kan aktivera
 - "Lista över glukosnivåvarningar"
     - Här skapar du larm för låga/höga BG-värden
     - Larmen kan vara olika för olika dagar/tider och du väljer själv melodi osv.
@@ -415,6 +420,8 @@ Här är lite tips på bra larm du kan aktivera
 - "Ytterligare varningar (xDrip+)"
     - "Larm vid beständigt högt" - Använde jag som följare för att slippa få larm bara för att det blev högt ett litet tag
     - <img src="./images/xdrip_larmBest.png" width=250> 
+
+</details>
 
 Det finns säker fler larm som är praktiska än de jag visat ovan. 
 
