@@ -23,7 +23,7 @@ Här nedan ser du hur vi satt upp vårt system. Har inte mer än testkört NSCli
   - [Installationer på telefon](#installationer-på-telefon)
     - [Dexcom](#dexcom)
     - [AAPS](#aaps-1)
-      - [Installationsguide:](#installationsguide)
+      - [Installationsguide](#installationsguide)
       - [Målen i AAPS](#målen-i-aaps)
   - [Klocka](#klocka)
   - [NSClient (för föräldrar/följare)](#nsclient-för-föräldrarföljare)
@@ -232,7 +232,10 @@ Läs mer [här](https://androidaps.readthedocs.io/en/latest/Hardware/DexcomG6.ht
 ### AAPS
 Installera nu AAPS genom att trycka på `app-full-release.apk`-filen i Drive
 Tror att du automatiskt kommer till "Installationsguiden" (hittas annars i menyn 3-punkter övre högra hörnet/installationsguide)
-#### Installationsguide:
+
+<details>
+  <summary><b>Installationsguide...</b></summary>
+#### Installationsguide
 - Alla inställningar kommer kunna ändras senare, så ingen panik att det måste bli rätt från början. Du kommer INTE tillåtas att slå på en loop som är helt självgående och pytsar i insulin från början, utan du lotsas genom ett helt gäng "Mål" som du måste ta dig igenom och sakta men säkert öppna upp fler funktioner som tillslut gör loopen mer och mer självgående och kraftfullare. 
 - Se lite screenshots nedanför denna lista: 
 - Godkänn allt som AAPS vill ha, behövigheter/platsåtkomst mm
@@ -262,6 +265,8 @@ Tror att du automatiskt kommer till "Installationsguiden" (hittas annars i menyn
 <img src="./images/instal_5_dia.png" width=250> <img src="./images/instal_5_target.png" width=250><img src="./images/instal_5_CR.png" width=250><img src="./images/instal_5_done.png" width=250> 
 <img src="./images/instal_6_profil.png" width=250> <img src="./images/instal_6_profil2.png" width=250> <img src="./images/instal_7_pump.png" width=250> <img src="./images/instal_8_ama.png" width=250>
 <img src="./images/instal_9_loop.png" width=250> <img src="./images/instal_10_oref1.png" width=250>
+
+</details>
 
 </details>
 
