@@ -111,7 +111,9 @@ Vill du testa min moddade variant av NS, får du läsa i installations-steget hu
 
 ## Dexcom BYODA
 Den oficiella Dexcom-appen är låst till att bara fungera på vissa mobiler och den är också låst till att bara skicka sin data till Dexcom-share. Du behöver en Dexcom-app som förutom att skicka till Dexcom-share och diasend, också delar med sig av BG-värden till AAPS (och xDrip). För detta finns en patchad (hackad) variant som du själv [konfigurerar/bygger i ett google-formulär](https://docs.google.com/forms/d/e/1FAIpQLScD76G0Y-BlL4tZljaFkjlwuqhT83QlFM5v6ZEfO7gCU98iJQ/viewform?fbzx=2196386787609383750&fbclid=IwAR2aL8Cps1s6W8apUVK-gOqgGpA-McMPJj9Y8emf_P0-_gAsmJs6QwAY-o0) och sedan får en länk att ladda ner appen (apk-filen).
-När du fyller i detta formulär är det viktigt att du väljer rätt på dessa inställningar: 
+
+<details>
+  <summary><b>När du fyller i detta formulär är det viktigt att du väljer rätt på dessa inställningar...</b></summary>
 
 Tillåt att den installeras på ALLA android-telefoner
 
@@ -127,6 +129,10 @@ Skippa INTE de 2h warmup utan värden och tillåt att dexcom skikar värden inte
 
 Resten är ganska själv-förklarande tror jag (använd default-värdena på de du är osäker på)
 
+</details>
+
+<br>
+
 Du får nu ett mejl med en nedladdningslänk inom 5min som du laddar ner och lägger på Drive. OBS! Kolla skräpposten, där hamnade mitt mejl iaf! 
 
 Under tiden så kan du passa på att ladda ner xDrip+ [här](https://xdrip-plus-updates.appspot.com/stable/xdrip-plus-latest.apk) som du också lägger på Drive (den kommer du vilja ha för larm!).
@@ -138,8 +144,9 @@ Installation av NS är väl beskrivet i detalj [här](http://nightscout.github.i
 Vill du testa mina modifikationer, så får du forka från mitt repo [min fork av nightscout](https://github.com/klalle/cgm-remote-monitor) och deploya branchen "wip/customtest"
 
 När du är klar med detta steg så har du fortfarande ingen data att visa, men det ska gå att komma åt NS-hemsidan i en webläsare!
+<details>
+  <summary><b>Lite tips hur jag använder NS...</b></summary>
 
-Lite tips hur jag använder NS: 
 - Aktivera OpenAPS predictions (de är inte färglagda från början, kommer strax!)
 - <img src="./images/NS_Web_3.png" width=400> <img src="./images/NS_Web_5.png" width=400>
   
@@ -151,6 +158,41 @@ Lite tips hur jag använder NS:
   - "Vård Portal" (särskrivning delux) kommer upp som ett litet kryss bredvid huvudmenyn (där kan man logga saker som faktiskt hamnar i databasen!)
     - Behöver inte användas så mycket då AAPS loggar det mesta själv, men här kan man t.ex. logga profilbyten jag tror att man kan få AAPS att byta till (om man är inloggad med token och har godkänt i AAPS)
   - Här ser du mot slutet också "Färgsätt progrosrader" som gör att du ser skillnad på prognos-graferna (denna finns inte om du inte först aktiverat OpenAPS enl ovan)
+
+</details>
+
+<br>
+<details>
+  <summary><b>Mina Heroku-inställningar...</b></summary>
+Jag har laggt till ett gäng variabler så att NS-hemsidan startar med rätt inställningar från början i alla webläsare (så jag slipper gå in i menyn å klicka fram rätt saker som jag vill se...)
+
+Förutom alla larminställningar (jag kör inte med larm i NS-web) så har jag: 
+
+- API_SECRET = xxxxxxx
+- BASAL_RENDER = default
+- BG_HIGH = 180     (18*bg för att NS räknar mg/dl ist för mmol/L)
+- BG_LOW = 45
+- BG_TARGET_BOTTOM = 63
+- BG_TARGET_TOP = 180
+- BOLUS_RENDER_FORMAT_SMALL = minimal
+- BRIDGE_USER_NAME = LÄMNAS BLANK! (eller skippa)
+- **DEVICESTATUS_ADVANCED = true**
+- DISPLAY_UNITS = mmol
+- EDIT_MODE = off
+- ENABLE = careportal basal dbsize rawbg iob maker cob bwp cage iage sage boluscalc pushover treatmentnotify mmconnect loop pump profile food **openaps** bage alexa override cors
+- MONGO_COLLECTION = entries
+- MONGODB_URI = mongodb+srv://dbanvändaren:lösenordet@klusternamn.el6di.mongodb.net/dbnamn?retryWrites=true&w=majority
+- **OPENAPS_COLOR_PREDICTION_LINES = true**
+- PAPERTRAIL_API_TOKEN = disabled (om du inte vill ha loggnig)
+- PUMP_FIELDS = reservoir battery clock
+- SCALE_Y = linear
+- **SHOW_FORECAST = openaps**
+- **SHOW_PLUGINS = iob cob pump openaps iage basal dbsize**
+- SHOW_RAWBG = never
+- **THEME = colors**
+- TIME_FORMAT = 24
+
+</details>
 
 ## Bygg AAPS
 För att verkligen vara tydlig med att detta är ett DIY-system och att du tar fullt ansvar för alla följder som kan tänkas bli, så måste du själv ladda ner koden från Github och bygga appen. Jag tänkte inte gå igenom alla steg då de är väl beskrivna [här](https://androidaps.readthedocs.io/en/latest/Installing-AndroidAPS/Building-APK.html), men som det ser ut nu, så är ett av de sista stegen i `Build the app` fel, och gör att många fastnar... 
@@ -209,10 +251,17 @@ Tror att du automatiskt kommer till "Installationsguiden" (hittas annars i menyn
 - APS-läge - Börja med öppen loop (du måste manuellt genomföra alla ändringar. Du har ändå ingen rättighet att sätta på closed loop än...)
 - Känslighetsavkänning - sätt oref1. 
 
+<details>
+  <summary><b>Klicka här för att visa screenshots av installationsprocessen</b></summary>
+
 <img src="./images/instal_1_visning.png" width=250> <img src="./images/instal_2_nsclient.png" height=150> <img src="./images/instal_2_nsclient_2.png" width=250> <img src="./images/instal_3_insu.png" width=250> <img src="./images/instal_4_BG.png" width=250> 
 <img src="./images/instal_5_dia.png" width=250> <img src="./images/instal_5_target.png" width=250><img src="./images/instal_5_CR.png" width=250><img src="./images/instal_5_done.png" width=250> 
 <img src="./images/instal_6_profil.png" width=250> <img src="./images/instal_6_profil2.png" width=250> <img src="./images/instal_7_pump.png" width=250> <img src="./images/instal_8_ama.png" width=250>
 <img src="./images/instal_9_loop.png" width=250> <img src="./images/instal_10_oref1.png" width=250>
+
+</details>
+
+<br>
 
 Du hittar alla viktiga saker i de två menyerna i vardera övre hörnen. Jag kan inte gå igenom allt, du måste själv bekanta dig med var du hittar allt! Se [AndroidAPS screens](https://androidaps.readthedocs.io/en/latest/Getting-Started/Screenshots.html) för mer info!
 Men här är lite kort info:
@@ -229,6 +278,10 @@ Nu är det bara att börja jobba dig igenom Målen ett efter ett (läs snälla p
 
 #### Målen i AAPS
 [Målen 1-11](https://androidaps.readthedocs.io/en/latest/Usage/Objectives.html) tar dig från genom alla steg för som gör att AAPS får mer och mer mandat att ta egna beslut och ge kraftigare och kraftigare korrigeringsdoser. Mål 3 är det som de flesta fastnar på och har frågor om, så jag tänkte förklara lite: 
+
+<details>
+  <summary><b>Klicka här för att expandera Mål-sektionen</b></summary>>
+
 - **Mål 1**
     - Valt din profil
     - Fått BG-data från sensor
@@ -299,6 +352,7 @@ Nu är det bara att börja jobba dig igenom Målen ett efter ett (läs snälla p
     - Automationer
     - Nu har du tillgång till allt!
 
+</details>
 
 
 
