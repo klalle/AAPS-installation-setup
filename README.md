@@ -146,25 +146,7 @@ Installation av NS är väl beskrivet i detalj [här](http://nightscout.github.i
 
 Vill du testa mina modifikationer, så får du forka från mitt repo [min fork av nightscout](https://github.com/klalle/cgm-remote-monitor) och deploya branchen "wip/customtest"
 
-När du är klar med detta steg så har du fortfarande ingen data att visa, men det ska gå att komma åt NS-hemsidan i en webläsare!
-<details>
-  <summary><b>Lite tips hur jag använder NS...</b></summary>
-
-- Aktivera OpenAPS predictions (de är inte färglagda från början, kommer strax!)
-- <img src="./images/NS_Web_3.png" width=400> <img src="./images/NS_Web_5.png" width=400>
-  
-  - Om du hovrar musen över OpenAPS-rutan (trycker på mobil) så visas massa bra info om varför AAPS har tagit det beslut det har tagit.
-  - notera att min "OpenAPS"-ruta visar mer än standard då jag har moddat koden lite... 
-- Öppna menyn (tre streck i högra hörnet)
-  - Rapportverktyg är det jag använder absolut mest! (förutom grafen i huvudfönstret)
-- <img src="./images/NS_Web_1.png" height=700> <img src="./images/NS_Web_2.png" height=700>
-  - "Vård Portal" (särskrivning delux) kommer upp som ett litet kryss bredvid huvudmenyn (där kan man logga saker som faktiskt hamnar i databasen!)
-    - Behöver inte användas så mycket då AAPS loggar det mesta själv, men här kan man t.ex. logga profilbyten jag tror att man kan få AAPS att byta till (om man är inloggad med token och har godkänt i AAPS)
-  - Här ser du mot slutet också "Färgsätt progrosrader" som gör att du ser skillnad på prognos-graferna (denna finns inte om du inte först aktiverat OpenAPS enl ovan)
-
-</details>
-
-<br>
+För att NS-hemsidan ska visa OpenAPS-prediktionerna och alla plugins vi är intresserade av, har jag laggt till vissa variabler i Heroku.
 <details>
   <summary><b>Mina Heroku-inställningar...</b></summary>
 Jag har laggt till ett gäng variabler så att NS-hemsidan startar med rätt inställningar från början i alla webläsare (så jag slipper gå in i menyn å klicka fram rätt saker som jag vill se...)
@@ -196,6 +178,31 @@ Förutom alla larminställningar (jag kör inte med larm i NS-web) så har jag:
 - TIME_FORMAT = 24
 
 </details>
+
+<br>
+
+När du är klar med detta steg så har du fortfarande ingen data att visa, men det ska gå att komma åt NS-hemsidan i en webläsare!
+
+<details>
+  <summary><b>Lite tips hur jag använder NS...</b></summary>
+
+Om du har aktiverat samma variabler i Heroku som jag har, så kommer det här redan vara ifyllt korrekt, men här är lite förtydligande: 
+
+- Aktivera OpenAPS predictions (de är inte färglagda från början, kommer strax!)
+- <img src="./images/NS_Web_3.png" width=400> <img src="./images/NS_Web_5.png" width=400>
+  
+  - Om du hovrar musen över OpenAPS-rutan (trycker på mobil) så visas massa bra info om varför AAPS har tagit det beslut det har tagit.
+  - notera att min "OpenAPS"-ruta visar mer än standard då jag har moddat koden lite... 
+- Öppna menyn (tre streck i högra hörnet)
+  - Rapportverktyg är det jag använder absolut mest! (förutom grafen i huvudfönstret)
+- <img src="./images/NS_Web_1.png" height=700> <img src="./images/NS_Web_2.png" height=700>
+  - "Vård Portal" (särskrivning delux) kommer upp som ett litet kryss bredvid huvudmenyn (där kan man logga saker som faktiskt hamnar i databasen!)
+    - Behöver inte användas så mycket då AAPS loggar det mesta själv, men här kan man t.ex. logga profilbyten jag tror att man kan få AAPS att byta till (om man är inloggad med token och har godkänt i AAPS)
+  - Här ser du mot slutet också "Färgsätt progrosrader" som gör att du ser skillnad på prognos-graferna (denna finns inte om du inte först aktiverat OpenAPS enl ovan)
+
+</details>
+
+<br>
 
 ## Bygg AAPS
 För att verkligen vara tydlig med att detta är ett DIY-system och att du tar fullt ansvar för alla följder som kan tänkas bli, så måste du själv ladda ner koden från Github och bygga appen. Jag tänkte inte gå igenom alla steg då de är väl beskrivna [här](https://androidaps.readthedocs.io/en/latest/Installing-AndroidAPS/Building-APK.html), men som det ser ut nu, så är ett av de sista stegen i `Build the app` fel, och gör att många fastnar... 
