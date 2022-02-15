@@ -233,9 +233,10 @@ Läs mer [här](https://androidaps.readthedocs.io/en/latest/Hardware/DexcomG6.ht
 Installera nu AAPS genom att trycka på `app-full-release.apk`-filen i Drive
 Tror att du automatiskt kommer till "Installationsguiden" (hittas annars i menyn 3-punkter övre högra hörnet/installationsguide)
 
-<details>
-  <summary><b>Installationsguide...</b></summary>
 #### Installationsguide
+<details>
+  <summary><b>Expandera guiden...</b></summary>
+
 - Alla inställningar kommer kunna ändras senare, så ingen panik att det måste bli rätt från början. Du kommer INTE tillåtas att slå på en loop som är helt självgående och pytsar i insulin från början, utan du lotsas genom ett helt gäng "Mål" som du måste ta dig igenom och sakta men säkert öppna upp fler funktioner som tillslut gör loopen mer och mer självgående och kraftfullare. 
 - Se lite screenshots nedanför denna lista: 
 - Godkänn allt som AAPS vill ha, behövigheter/platsåtkomst mm
