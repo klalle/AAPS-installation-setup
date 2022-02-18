@@ -278,16 +278,19 @@ Tror att du automatiskt kommer till "Installationsguiden" (hittas annars i menyn
 
 <br>
 
-Du hittar alla viktiga saker i de två menyerna i vardera övre hörnen. Jag kan inte gå igenom allt, du måste själv bekanta dig med var du hittar allt! Se [AndroidAPS screens](https://androidaps.readthedocs.io/en/latest/Getting-Started/Screenshots.html) för mer info!
+Du hittar alla viktiga saker i de två menyerna i vardera övre hörnen. Jag kan inte gå igenom allt, du måste själv bekanta dig med var du hittar allt! Se [Preferences](https://androidaps.readthedocs.io/en/latest/Configuration/Preferences.html?highlight=preferences#preferences) för mer info!
+
 Men här är lite kort info:
 - "Hamburgermenyn" (de tre strecken uppe i vänstra hörnet) där du (förutom genvägar till vald pump/insu/cgm mm) når:
     - Mål - det här är där du måste klara av målen ([Objectives](https://androidaps.readthedocs.io/en/latest/Usage/Objectives.html) på engelska)
     - Underhåll - här exporterar du dina inställningar (Gör det efter varje klarat mål, och lägg på Drive så att du kan återskapa var du var i målen om mobilen dör!)
-    - Konfiugreringsverktyget
-     inställningar (kugghjul) och väljer vilka flikar som ska synas (gröna ögat -> tryck i checkboxen så aktiveras en ny flik i huvudfönstret)
+    - [Konfiugreringsverktyget](https://androidaps.readthedocs.io/en/latest/Configuration/Config-Builder.html)
+     inställningar (kugghjul) samt väljer vilka flikar som ska synas (gröna ögat -> tryck i checkboxen så aktiveras en ny flik i huvudfönstret)
 - Högermenyn (tre prickar uppe till höger) här nås massor av inställningar 
 
 <img src="./images/overview.png" width=250> <img src="./images/hamburger.png" width=250> <img src="./images/konfigverktyg.png" width=250>
+
+Läs sen in dig på [AndroidAPS screens](https://androidaps.readthedocs.io/en/latest/Getting-Started/Screenshots.html) för att förstå allt som visas i appen.
 
 Nu är det bara att börja jobba dig igenom Målen ett efter ett (läs snälla på om varje mål! finns länkar vid varje mål i appen och du har ju länken till "[Objectives](https://androidaps.readthedocs.io/en/latest/Usage/Objectives.html)"). När du är klar kommer du ha en vältrimmad loop som du förhoppningsvis vet hur du ska justera när insulinkänsligheten förändras. 
 
@@ -325,7 +328,7 @@ Nu är det bara att börja jobba dig igenom Målen ett efter ett (läs snälla p
         - *Insticksprogram för känslighet ger användaren föreslagna ändringar av basaldoser, KH-kvoter och insulinkänslighetsfaltprer som kan användas för att redigera profilen.*
             - läs: ger autosens förslag på nya värden för IC, ISF och basal?
         - *Vissa av insticksprogrammen har konfigurerbara tidsintervall som kan ställas in av användaren*
-            - hint: finns det nåt plugin som det går att ange ett tidsintervall på (har inget med autosens att göra)
+            - Inte helt säker på vad de är ute efter här? kanske en rest från AAPS<2.8 ("In versions prior to AAPS 2.7 user had to choose between 8 or 24 hours manually.")?
     - **Aktivt Insulin (IOB)**
         - Hint IOB är allt insulin i kroppen utöver det som är basal!
 - **Mål 4**
@@ -345,7 +348,7 @@ Nu är det bara att börja jobba dig igenom Målen ett efter ett (läs snälla p
         - AAPS får alltså inte ge extra insulin (ökad basal) så länge IOB >= 0
     - se upp för höga värden efter du varit låg, då AAPS kan ha kört på zero-temp (noll basal) när du förutspåts bli låg. 
     - När du loopar om du inte gjort det förut, kommer du inse att du behöver mycket mindre druvsocker när du är låg, eftersom basalen automatiskt har varit avstängd långt innan du blev låg (när den förutspådde det) - så slå en kik på IOB när du är låg å notera hur hög du blir av korrigerings-kh!
-    - Tips, i graf 1: Aktivera IOB och COB så ser du dessa kurvor på varandra i lilla grafen under huvudgrafen (tryck på pilen uppe i stora grafens hörn och aktivera graf 1)
+    - Tips, i graf 1: Aktivera IOB och COB så ser du dessa kurvor på varandra i lilla grafen under huvudgrafen (tryck på pilen uppe i stora grafens hörn och aktivera graf 1, sen öppna samma pil igen och välj IOB och COB)
 - **Mål 7**
     - Hurra nu börjar det roliga med stängd loop!
     - Höj sakta din MaxIOB från 0 som i mål 6, till det du beräknar enl dokumentationen (står under objectives)
@@ -390,9 +393,9 @@ Där står bland annat att du måste installera appen med "Wear installer", se [
 ## NSClient (för föräldrar/följare)
 NSClient används för att monitorera och styra AAPS från en följartelefon. Det är en strippad version av AAPS, så den ser ut väldigt mycket som AAPS, men saknar funktionalitet. Om man i AAPS godkänner att NSClient får lov att göra ändringar, så kan man från NSClient-appen göra profil-byten och sätta TT (temporära target = målvärden). 
 
-All övrig styrning går att sköta via [sms-komandon](https://androidaps.readthedocs.io/en/latest/Children/SMS-Commands.html?highlight=sms) (telefonnumret måste vara aktiverat i AAPS).
+All övrig styrning går att sköta via [sms-komandon](https://androidaps.readthedocs.io/en/latest/Children/SMS-Commands.html?highlight=sms). Telefonnumret måste vara aktiverat i AAPS och en 2-faktors auktorisering rekomenderas (krävs?). 
 
-Obs! NSclient-appen funkar bara på Android-telefoner, men det går utmärkt att som följare köra iOS och ha nån anna nightscout-klient / xdrip för ios och sköta remote-styrningen via sms!
+Obs! NSclient-appen funkar bara på Android-telefoner, men det går utmärkt att som följare köra iOS och ha nån anna nightscout-klient / [xDrip4iOS](https://xdrip4ios.readthedocs.io/en/latest/connect/follower/) och sköta remote-styrningen via sms! Jag har sett att folk använder 2-faktors-apparna Authy eller 2FAS Auth.
 
 Läs på om [Remote monitoring med AAPS](https://androidaps.readthedocs.io/en/latest/Children/Children.html)
 
