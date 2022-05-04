@@ -35,7 +35,6 @@ Here you see a chart of our setup, I haven't mort than tested the NSClient-app s
   - [OmnipodStash](#omnipodstash)
   - [Gadgets](#gadgets)
     - [M5Stack Nightscout](#m5stack-nightscout)
-    - [NightStander](#nightstander)
 
 
 ## Pumps
@@ -386,60 +385,58 @@ NSClient app is possible to build in AndroidStudio just like AAPS, but you usual
 <img src="./images/nsclientapk.png">
  
 ## xDrip+
-Installera xDrip+ från apk-filen du laddat ner i tidigare skede. 
-Gå till inställningar (övre vänstra hörnets tre streck/Inställningar) och börja med att välja "Hårdvarudatakälla" (BG-källa).
-- Telefonen med BYODA och AAPS: välj `640G / EverSense`
-- Alla följartelefoner: Välj `Nightscout Follower` och fyll i adressen till din NS-site (inkl `https://`) under "Nightscout Follow URL" som kommer upp under "Hårdvarukälla" i menyn. 
-- Om du vill kan du aktivera "Download Treatments" för att även se insulin och kh i xDrip, men jag har inte det då jag bara använde xDrip för larm.
+Install xDrip+ from the apk-filen you've downloaded earlier. 
+This is directly translated from swedish, so the actual names might differ in the xdrip app...
+
+Open settings (three lines, top left/settings) and choose "hardware-source" (BG-source).
+- Telephone with BYODA and AAPS: select `640G / EverSense`
+- followers: select `Nightscout Follower` and supply your NS-site address (inkl `https://`) under "Nightscout Follow URL" that will show up under "hardware source" in the settings menu. 
+- Optionally activate "Download Treatments" to see insulin and carbs in xDrip, but I have not since we only use xDrip for alarms.
 
 <img src="./images/xdrip_BYODA.png" width=250><img src="./images/xdrip_NS.png" width=250>
 
-Gå till Inställningar/`Larm och varningar` (näst högst upp) och börja ovanifrån
+Open settings/`Alarms and warnings`  and start from the top
 
 <img src="./images/xdrip_inst.png" width=250> 
 <details>
-  <summary><b>Här är lite tips på bra larm du kan aktivera...</b></summary>>
+  <summary><b>some alarms I use...</b></summary>>
 
-- "Lista över glukosnivåvarningar"
-    - Här skapar du larm för låga/höga BG-värden
-    - Larmen kan vara olika för olika dagar/tider och du väljer själv melodi osv.
-    - OBS! jag hade förut problem med att fylla i ett värde då xdrip inte tillåter mig att skriva "," men vägrar godta "."... skriv då på ett annat ställe i telefonen och kopiera/klistra in värdet (t.ex "3,5") i rutan
+- "List of glucose level warnings"
+    - High/low BG-alarms
+    - Very flexible with different alarms on different days/time of day
+    - If your phone uses "," instead of "." I had a problem typing the alarm levels... workaround is copy paste into the textboxes
     - <img src="./images/xdrip_BG.png" width=250> <img src="./images/xdrip_BG_low.png" width=250>
-- "Glukosvarningsinställningar"
-    - "Intelligent snooze" & "Intelliganta larm" - Fantastiskt att slippa få larm om värdena ändå går åt rätt håll!
+- "Glukos warnings settingsr"
+    - "Intelligent snooze" & "Intelligant alarm" - Nice to not get an alarm if BG is heading in the right direction!
     - <img src="./images/xdrip_glukvarninst.png" width=250> 
-- "Varning för missade avläsningar" 
-    - Bra att ha för t.ex. följare!
-- "Andra varningar" 
+- "Warning for missed readings" 
+    - If you loose contact with CGM!
+- "Other Warnings" 
     - "Bg falling fast" 
     - "Bg rising fast"
     - <img src="./images/xdrip_BG_fallfast.png" width=250> 
-- "Ytterligare varningar (xDrip+)"
-    - "Larm vid beständigt högt" - Använde jag som följare för att slippa få larm bara för att det blev högt ett litet tag
+- "additional warnings (xDrip+)"
+    - "Alarm on permanent high " - I as a follower use this to get notified only on permanent highs
     - <img src="./images/xdrip_larmBest.png" width=250> 
 
 </details>
 
-Det finns säker fler larm som är praktiska än de jag visat ovan. 
+Im sure there are lots of other nice alarms you can use in xdrip.  
 
 ## OmnipodStash
-Jag har byggt en liten applikation som man kan installera bredvid NS och som håller koll på lagret av poddar/sensorer och insulin man har kvar där hemma. När det börjar ta slut så får du ett mejl som påminner om att beställa nya.
+I have created a little application that you can install next to NS that keeps track of you stash of podds/sensors and insulin. When the stash runs low, you'll get an notification email telling you to order more. 
 
- Poddar och sensorer registrerar AAPS till NS vid byten, så de räknas ner automatiskt - insulinflaskor får du registrera manuellt när en tagit slut.
+ Podd- and sensor-changes are registered by AAPS in NS, so the app will automatically reduce the number - insulin cartages you'll have to register manually when one runs out.
 
-Installationsbeskrivning finns [här](https://github.com/maja-lofgren/omnipod_stash)
+Installation instructions [here](https://github.com/maja-lofgren/omnipod_stash) 
 
 <img src="./images/omnipodstash.png"> 
-
+since the writeup of this manual, i have made a fork of NS that includes omnipodstash and a third application called kitescout. See instructions [here](https://github.com/klalle/cgm-remote-monitor/tree/wip/kitescout#customization-of-nightscout)
 
 
 ## Gadgets
 ### M5Stack Nightscout
-Vi har kört en [M5Stack Nightscout](https://www.facebook.com/groups/606295776549008) som är en lite rolig pryl som visar data från NS och kan larma (som en sängklocka eller på arbetsbordet)
+We have an [M5Stack Nightscout](https://www.facebook.com/groups/606295776549008) which is a small little gadget with a screen that displays data from NS and has alarm functionality (use next to bed or on your work-desk)
 
 <img src="./images/m5stack.png" height=200><img src="./images/m5stack_2.png" height=200>
 
-### NightStander
-Daniel Mini Johansson i Looped - Sweden har utvecklat [NightStander](https://github.com/MiniJoko/NightStander) - en egen pryl som kan visa NS-data och har lite funktioner som kan prata med åtminstone ios-loop (vet inte hur de lirar med AAPS!?)
-
-<img src="https://github.com/MiniJoko/NightStander/blob/main/resources/img/product.png" height=200>
