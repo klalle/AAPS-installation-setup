@@ -252,7 +252,9 @@ För det första är det lite otydligt om det verkligen är gratis på azure-hem
  - Snabba varianten: Tryck på Avancerad redigering och klistra in värden som du har ändrat i t.ex. notepad (nedan hittar du hur min ser ut)
 <details> 
     <summary><b>Klicka här för att se mina Nightscout-inställningar (AAPS) som du kan modifiera och klistra in i din ruta</b></summary>
-Observera att de 4 första var där by default - de lät jag vara kvar! 
+
+Observera att de 4 första var där by default - de lät jag vara kvar!
+
 ```
 [
     {
