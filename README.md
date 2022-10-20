@@ -19,6 +19,7 @@ Här nedan ser du hur vi satt upp vårt system. Har inte mer än testkört NSCli
   - [Hur installerar man en app som inte kommer från google](#hur-installerar-man-en-app-som-inte-kommer-från-google)
   - [Dexcom BYODA](#dexcom-byoda)
   - [Installera Nightscout](#installera-nightscout)
+    - [Installera på Azure (bara hemsida, eller + databas)](#installera-på-azure-bara-hemsida-eller--databas)
     - [för att sätta upp på Heroku (inte längre aktuellt...)](#för-att-sätta-upp-på-heroku-inte-längre-aktuellt)
   - [Bygg AAPS](#bygg-aaps)
   - [Installationer på telefon](#installationer-på-telefon)
@@ -142,6 +143,8 @@ Du får nu ett mejl med en nedladdningslänk inom 5min som du laddar ner och lä
 Under tiden så kan du passa på att ladda ner xDrip+ [här](https://xdrip-plus-updates.appspot.com/stable/xdrip-plus-latest.apk) som du också lägger på Drive (den kommer du vilja ha för larm!).
 
 ## Installera Nightscout 
+
+### Installera på Azure (bara hemsida, eller + databas)
 
 Obs! Heroku är inte längre gratis så det kan man fortsätta att använda för en ganska billig peng. Om man vill fortsätta använda NS på en gratis-tjänst, så kan man köra Azure. 
 Jag installerade enl [den här youtube-tutorialen](https://www.youtube.com/watch?v=EDADrteGBnY&ab_channel=ScottHanselman) som var väldigt bra och gick igenom det mesta. Jag tog screenshots på den svenska versionen av azure för varje steg om nån vill följa: 
