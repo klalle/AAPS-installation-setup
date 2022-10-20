@@ -150,6 +150,8 @@ Obs! Heroku är inte längre gratis så det kan man fortsätta att använda för
 Jag installerade enl [den här youtube-tutorialen](https://www.youtube.com/watch?v=EDADrteGBnY&ab_channel=ScottHanselman) som var väldigt bra och gick igenom det mesta. Jag tog screenshots på den svenska versionen av azure för varje steg om nån vill följa: 
 OBS! Jag följde guiden och skapade en ny databas på azure - **men struntade i att använda den** då jag istället konfigurerade den att använda vår gamla MONGODB_URI som pekar på Atlas-databasen, så att vi direkt fick tillgång till all historisk data och fortsätter använda den ist!
 
+tips: klicka på bilderna för att öppna dom i ny flik i webläsaren om de är för små att se...
+
 <details>
   <summary><b>Hur jag installerade NS på Azure (svenska screenshots)</b></summary>
 
