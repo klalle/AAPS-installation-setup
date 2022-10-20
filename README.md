@@ -152,7 +152,7 @@ OBS! Jag följde guiden och skapade en ny databas på azure - **men struntade i 
 
 För det första är det lite otydligt om det verkligen är gratis på azure-hemsidan, men om man klickar på sin plan, så kan man läsa att de tjänster vi kommer använda är bland de 40 som kommer fortsätta vara gratis även efter prövo-tiden. 
 
-<img src="./images/ns/bild01.png" width=500>
+<img src="./images/ns/bild01.png" width=800>
 
 1. Skapa ett [gratis azure-konto här](https://azure.microsoft.com/sv-se/) (grön knapp uppe till höger "kostnadsfritt konto")
    - Du kommer precis som heroku behöva fylla i ett kontokort - men allt kommer vara gratis om du följer instruktionerna
@@ -164,12 +164,12 @@ För det första är det lite otydligt om det verkligen är gratis på azure-hem
 1. skapa en Cosmos DB 
    - Sök efter "Azure Cosmos DB for MongoDB":
   
-<img src="./images/ns/bild00.png" width=500> <br>
-<img src="./images/ns/bild011.png" width=300>
+<img src="./images/ns/bild00.png" width=800> <br>
+<img src="./images/ns/bild011.png" width=500>
    
    - skapa ny "Resursgrupp" som du döper till ex "nightscout":
   
-<img src="./images/ns/bild012.png" width=500>
+<img src="./images/ns/bild012.png" width=800>
    
    - Döp Kontonamn till nåt unikt ex "pellesnightscoutdb" 
    - välj Europa
@@ -177,30 +177,30 @@ För det första är det lite otydligt om det verkligen är gratis på azure-hem
    - **Tillämpa fri nivå-rabatt**
    - Kryssa i **Begränsa totala dataflödet**
   
-<img src="./images/ns/bild013.png" width=500>
+<img src="./images/ns/bild013.png" width=800>
 
     - Tryck nu blåa knappen **"Granska + skapa"**
   
 
 1. Öppna din resursgrupp -> databasresurs och stäng välkommen-filmen
 
-<img src="./images/ns/bild04.png" width=500><br>
-<img src="./images/ns/bild06.png" width=500><br>
-<img src="./images/ns/bild07.png" width=300>
+<img src="./images/ns/bild04.png" width=800><br>
+<img src="./images/ns/bild06.png" width=800><br>
+<img src="./images/ns/bild07.png" width=800>
 
 3. Skapa en databas (var noga med att det är ifyllt enl nedan så att den är gratis!)
 
-<img src="./images/ns/bild08.png" width=500>
-<img src="./images/ns/bild09.png" width=300>
+<img src="./images/ns/bild08.png" width=800>
+<img src="./images/ns/bild09.png" width=500>
 
 4. i din databas-vy tryck på "Snabbstart"/"Node js" för att få tillgång till din connection-string (MONGODB_URI)
    - Kopiera den nedersta "Node js 3.0" genom att trycka där röda pilen visar
    - spara undan i text-fil på datorn!
    - **VIKTIGT!** ändra maxIdleTImeMS till socketTimeoutMS antingen genom att manuellt skriva över, eller find & replace som jag visar nedan!
 
-<img src="./images/ns/bild10.png" width=500>
-<img src="./images/ns/bild11.png" width=500>
-<img src="./images/ns/bild12.png" width=300>
+<img src="./images/ns/bild10.png" width=800>
+<img src="./images/ns/bild11.png" width=800>
+<img src="./images/ns/bild12.png" width=500>
 
 
 </details>
@@ -217,8 +217,8 @@ För det första är det lite otydligt om det verkligen är gratis på azure-hem
   - Grå knapp **"Nästa Docker>"**
 
   
-<img src="./images/ns/bild13.png" width=300>
-<img src="./images/ns/bild14.png" width=600>
+<img src="./images/ns/bild13.png" width=500>
+<img src="./images/ns/bild14.png" width=800>
 <img src="./images/ns/bild15.png" width=800>
 
   - Konfa vilken docker-image och källa enl nedan:
@@ -231,7 +231,7 @@ För det första är det lite otydligt om det verkligen är gratis på azure-hem
 
 3. granska din web-app å tryck "Skapa"
 
-<img src="./images/ns/bild19.png" width=600>
+<img src="./images/ns/bild19.png" width=800>
 
 4. Konfigurera Nightscout-variabler
    - Resursgrupp/nightscout/din web-app
