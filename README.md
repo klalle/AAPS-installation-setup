@@ -19,6 +19,7 @@ Här nedan ser du hur vi satt upp vårt system. Har inte mer än testkört NSCli
   - [Hur installerar man en app som inte kommer från google](#hur-installerar-man-en-app-som-inte-kommer-från-google)
   - [Dexcom BYODA](#dexcom-byoda)
   - [Installera Nightscout](#installera-nightscout)
+    - [för att sätta upp på Heroku (inte längre aktuellt...)](#för-att-sätta-upp-på-heroku-inte-längre-aktuellt)
   - [Bygg AAPS](#bygg-aaps)
   - [Installationer på telefon](#installationer-på-telefon)
     - [Dexcom](#dexcom)
@@ -140,8 +141,268 @@ Du får nu ett mejl med en nedladdningslänk inom 5min som du laddar ner och lä
 
 Under tiden så kan du passa på att ladda ner xDrip+ [här](https://xdrip-plus-updates.appspot.com/stable/xdrip-plus-latest.apk) som du också lägger på Drive (den kommer du vilja ha för larm!).
 
-## Installera Nightscout
+## Installera Nightscout 
 
+Obs! Heroku är inte längre gratis så det kan man fortsätta att använda för en ganska billig peng. Om man vill fortsätta använda NS på en gratis-tjänst, så kan man köra Azure. 
+Jag installerade enl [den här youtube-tutorialen](https://www.youtube.com/watch?v=EDADrteGBnY&ab_channel=ScottHanselman) som var väldigt bra och gick igenom det mesta. Jag tog screenshots på den svenska versionen av azure för varje steg om nån vill följa: 
+OBS! Jag följde guiden och skapade en ny databas på azure - **men struntade i att använda den** då jag istället konfigurerade den att använda vår gamla MONGODB_URI som pekar på Atlas-databasen, så att vi direkt fick tillgång till all historisk data och fortsätter använda den ist!
+
+<details>
+  <summary><b>Hur jag installerade NS på Azure (svenska screenshots)</b></summary>
+
+För det första är det lite otydligt om det verkligen är gratis på azure-hemsidan, men om man klickar på sin plan, så kan man läsa att de tjänster vi kommer använda är bland de 40 som kommer fortsätta vara gratis även efter prövo-tiden. 
+
+<img src="./images/ns/bild01.png" width=500>
+
+1. Skapa ett [gratis azure-konto här](https://azure.microsoft.com/sv-se/) (grön knapp uppe till höger "kostnadsfritt konto")
+   - Du kommer precis som heroku behöva fylla i ett kontokort - men allt kommer vara gratis om du följer instruktionerna
+2. Skippa "azure-style databas" stegen om du vill fortsätta använda din Atlas-databas: 
+
+<details> 
+    <summary><b>azure-style databas (om du inte redan har en Atlas)</b></summary>
+
+1. skapa en Cosmos DB 
+   - Sök efter "Azure Cosmos DB for MongoDB":
+  
+<img src="./images/ns/bild00.png" width=500> <br>
+<img src="./images/ns/bild011.png" width=300>
+   
+   - skapa ny "Resursgrupp" som du döper till ex "nightscout":
+  
+<img src="./images/ns/bild012.png" width=500>
+   
+   - Döp Kontonamn till nåt unikt ex "pellesnightscoutdb" 
+   - välj Europa
+   - Etablerat dataflöde
+   - **Tillämpa fri nivå-rabatt**
+   - Kryssa i **Begränsa totala dataflödet**
+  
+<img src="./images/ns/bild013.png" width=500>
+
+    - Tryck nu blåa knappen **"Granska + skapa"**
+  
+
+1. Öppna din resursgrupp -> databasresurs och stäng välkommen-filmen
+
+<img src="./images/ns/bild04.png" width=500><br>
+<img src="./images/ns/bild06.png" width=500><br>
+<img src="./images/ns/bild07.png" width=300>
+
+3. Skapa en databas (var noga med att det är ifyllt enl nedan så att den är gratis!)
+
+<img src="./images/ns/bild08.png" width=500>
+<img src="./images/ns/bild09.png" width=300>
+
+4. i din databas-vy tryck på "Snabbstart"/"Node js" för att få tillgång till din connection-string (MONGODB_URI)
+   - Kopiera den nedersta "Node js 3.0" genom att trycka där röda pilen visar
+   - spara undan i text-fil på datorn!
+   - **VIKTIGT!** ändra maxIdleTImeMS till socketTimeoutMS antingen genom att manuellt skriva över, eller find & replace som jag visar nedan!
+
+<img src="./images/ns/bild10.png" width=500>
+<img src="./images/ns/bild11.png" width=500>
+<img src="./images/ns/bild12.png" width=300>
+
+
+</details>
+
+<br>
+
+3. Skapa en web-app
+  - Välj din resursgrupp (om du inte har skapat en asure-databas ovan, tryck "Skapa ny" och döp till ex "nightscout")
+  - Namnge din app (kommer vara del av sökvägen till NS-hemsidan)
+  - Välj "Docker-container" och Linux
+  - Välj region "North Europe"
+  - Välj "Skapa ny" på Linux-plan och döp till ex "nightscoutplan"
+  - Se till att välja "F1" (**den bruna gratis-planen!**)
+  - Grå knapp **"Nästa Docker>"**
+
+  
+<img src="./images/ns/bild13.png" width=300>
+<img src="./images/ns/bild14.png" width=600>
+<img src="./images/ns/bild15.png" width=800>
+
+  - Konfa vilken docker-image och källa enl nedan:
+  - Enskild container
+  - Docker Hub
+  - nightscout/cgm-remote-monitor:latest
+  - Tryck Blå knapp **"Granska + skapa"**
+ 
+<img src="./images/ns/bild18.png" width=800>
+
+3. granska din web-app å tryck "Skapa"
+
+<img src="./images/ns/bild19.png" width=600>
+
+4. Konfigurera Nightscout-variabler
+   - Resursgrupp/nightscout/din web-app
+
+
+<img src="./images/ns/bild20.png" width=800>
+
+ - Tryck sen på Konfiguration
+
+<img src="./images/ns/bild21.png" width=800>
+
+ - Långsamma varianten: trycka på "Ny programinställning" och lägga till variablerna 1 och 1 (samma variabler som i HEROKU)
+ - Snabba varianten: Tryck på Avancerad redigering och klistra in värden som du har ändrat i t.ex. notepad (nedan hittar du hur min ser ut)
+<details> 
+    <summary><b>Klicka här för att se mina Nightscout-inställningar (AAPS) som du kan modifiera och klistra in i din ruta</b></summary>
+Observera att de 4 första var där by default - de lät jag vara kvar! 
+```
+[
+    {
+        "name": "DOCKER_REGISTRY_SERVER_PASSWORD",
+        "value": "",
+        "slotSetting": false
+    },
+    {
+        "name": "DOCKER_REGISTRY_SERVER_URL",
+        "value": "https://index.docker.io",
+        "slotSetting": false
+    },
+    {
+        "name": "DOCKER_REGISTRY_SERVER_USERNAME",
+        "value": "",
+        "slotSetting": false
+    },
+    {
+        "name": "WEBSITES_ENABLE_APP_SERVICE_STORAGE",
+        "value": "false",
+        "slotSetting": false
+    },
+    {
+        "name": "API_SECRET",
+        "value": "VÄLDIGT HEMLIG API-SECRET SOM DU ANVÄNDER FÖR ATT LOGGA IN I NS",
+        "slotSetting": false
+    },
+    {
+        "name": "BASAL_RENDER",
+        "value": "default",
+        "slotSetting": false
+    },
+    {
+        "name": "BG_HIGH",
+        "value": "180",
+        "slotSetting": false
+    },
+    {
+        "name": "BG_LOW",
+        "value": "45",
+        "slotSetting": false
+    },
+    {
+        "name": "BG_TARGET_BOTTOM",
+        "value": "63",
+        "slotSetting": false
+    },
+    {
+        "name": "BG_TARGET_TOP",
+        "value": "180",
+        "slotSetting": false
+    },
+    {
+        "name": "BOLUS_RENDER_FORMAT_SMALL",
+        "value": "minimal",
+        "slotSetting": false
+    },
+    {
+        "name": "DEVICESTATUS_ADVANCED",
+        "value": "true",
+        "slotSetting": false
+    },
+    {
+        "name": "DISPLAY_UNITS",
+        "value": "mmol",
+        "slotSetting": false
+    },
+    {
+        "name": "EDIT_MODE",
+        "value": "off",
+        "slotSetting": false
+    },
+    {
+        "name": "ENABLE",
+        "value": "careportal basal dbsize rawbg iob maker cob bwp cage iage sage boluscalc pushover treatmentnotify mmconnect loop pump profile food openaps bage alexa override cors",
+        "slotSetting": false
+    },
+    {
+        "name": "MONGO_COLLECTION",
+        "value": "entries",
+        "slotSetting": false
+    },
+    {
+        "name": "MONGODB_URI",
+        "value": "mongodb://VÄLDIGTHEMLIGAORD HÄR KAN DU ANTINGEN ANVÄNDA ADRESSEN TILL ATLAS, ELLER TILL COSMOS HÄR I AZURE!nightscoutdb.mongo.cosmos.azure.com:10255/?ssl=true&retrywrites=false&socketTimeoutMS=120000&appName=@XXXXnightscoutdb@",
+        "slotSetting": false
+    },
+    {
+        "name": "OPENAPS_COLOR_PREDICTION_LINES",
+        "value": "true",
+        "slotSetting": false
+    },
+    {
+        "name": "PUMP_FIELDS",
+        "value": "reservoir battery clock",
+        "slotSetting": false
+    },
+    {
+        "name": "SCALE_Y",
+        "value": "linear",
+        "slotSetting": false
+    },
+    {
+        "name": "SHOW_FORECAST",
+        "value": "openaps",
+        "slotSetting": false
+    },
+    {
+        "name": "SHOW_PLUGINS",
+        "value": "iob cob pump openaps iage basal dbsize",
+        "slotSetting": false
+    },
+    {
+        "name": "SHOW_RAWBG",
+        "value": "never",
+        "slotSetting": false
+    },
+    {
+        "name": "THEME",
+        "value": "colors",
+        "slotSetting": false
+    },
+    {
+        "name": "TIME_FORMAT",
+        "value": "24",
+        "slotSetting": false
+    }
+]
+```
+
+</details>
+
+<br>
+<img src="./images/ns/bild22.png" width=800>
+
+<br>
+
+- Glöm inte att trycka på **Spara** när du är klar!
+
+<img src="./images/ns/bild24.png" width=800>
+
+
+- Gå till översikten och tryck på URL-länken, så kommer din sida att laddas 
+- Första gången så stog den bara och tuggade, då fick jag trycka på "Starta om" som man ser på bilden nedan: 
+
+<img src="./images/ns/bild25.png" width=800>
+
+Nu är det bara att gå in i AAPS/Loop/xdrip(följare)/NS-client/m5Stack mm och peka om till rätt URL (https://din-webb-app.azurewebsites.net) 
+
+</details>
+
+<br>
+
+
+### för att sätta upp på Heroku (inte längre aktuellt...)
 Installation av NS är väl beskrivet i detalj [här](http://nightscout.github.io/nightscout/new_user/), vill du i stället ha det berättat för dig, så har Jonas Hummelstrand gjort en [youtube-tutorial](https://youtu.be/rNIpmIhPCpU) på svenska där han går igenom processen steg för steg. OBS! Skippa allt som har med BRIDGE att göra (steg 13 och framåt), du ska INTE sätta upp Dexcom bridge då vi istället ska skicka upp all data direkt från AAPS. 
 
 Vill du testa mina modifikationer, så får du forka från mitt repo [min fork av nightscout](https://github.com/klalle/cgm-remote-monitor) och deploya branchen "wip/customtest"
